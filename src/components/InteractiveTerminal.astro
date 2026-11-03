@@ -96,8 +96,6 @@ const isFa = lang === 'fa';
 </div>
 
 <script>
-  import confetti from 'canvas-confetti';
-
   const modal = document.getElementById('cyber-terminal-modal');
   const floatingBtn = document.getElementById('terminal-floating-btn');
   const closeBtn = document.getElementById('terminal-close-btn');
@@ -161,7 +159,7 @@ const isFa = lang === 'fa';
     termBody.scrollTop = termBody.scrollHeight;
   }
 
-  function processCommand(cmd: string) {
+  async function processCommand(cmd: string) {
     const raw = cmd.trim();
     if (!raw) return;
 
@@ -248,6 +246,7 @@ const isFa = lang === 'fa';
 
       case 'sudo hire':
         try {
+          const confetti = (await import('canvas-confetti')).default;
           confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         } catch(e) {}
         appendLine(`

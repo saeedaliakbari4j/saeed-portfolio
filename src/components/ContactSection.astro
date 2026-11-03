@@ -197,8 +197,6 @@ const { profile } = portfolioData;
 </section>
 
 <script>
-  import confetti from 'canvas-confetti';
-
   // Copy email logic
   const copyBtn = document.getElementById('copy-email-btn');
   const targetEmail = document.getElementById('target-email');
@@ -222,10 +220,11 @@ const { profile } = portfolioData;
   const form = document.getElementById('contact-form') as HTMLFormElement;
   const successBanner = document.getElementById('form-success-banner');
 
-  form?.addEventListener('submit', (e) => {
+  form?.addEventListener('submit', async (e) => {
     e.preventDefault();
 
     try {
+      const confetti = (await import('canvas-confetti')).default;
       confetti({
         particleCount: 80,
         spread: 60,
