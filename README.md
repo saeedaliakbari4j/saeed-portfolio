@@ -35,7 +35,7 @@
 
 ```bash
 # Clone the repository
-git clone https://github.com/saeedaliakbari/saeed-portfolio.git
+git clone https://github.com/saeedaliakbari4j/saeed-portfolio.git
 
 # Navigate to project
 cd saeed-portfolio
@@ -55,5 +55,5 @@ npm run build
 ## 📬 Contact & Socials
 
 - **LinkedIn**: [linkedin.com/in/saeed-aliakbari](https://www.linkedin.com/in/saeed-aliakbari/)
-- **GitHub**: [github.com/saeedaliakbari](https://github.com/saeedaliakbari)
+- **GitHub**: [github.com/saeedaliakbari4j](https://github.com/saeedaliakbari4j)
 - **Email**: `ai-bpmellat@outlook.com`
