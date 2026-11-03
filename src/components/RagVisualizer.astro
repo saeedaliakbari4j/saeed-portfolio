@@ -8,39 +8,39 @@ const { lang } = Astro.props;
 const isFa = lang === 'fa';
 ---
 
-<section id="rag-lab" class="py-14 sm:py-16 bg-[#faf8f5] border-b border-[#e5efe9]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+<section id="rag-lab" class="py-14 sm:py-20 bg-[#f8fafc] border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-10">
-      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
-        <span class="w-1.5 h-1.5 rounded-full bg-[#d96245] animate-ping"></span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-bold tracking-wider uppercase mb-2">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
         <span>{isFa ? 'آزمایشگاه زنده هوش مصنوعی' : 'LIVE AI ARCHITECTURE LAB'}</span>
       </div>
-      <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
         {isFa ? 'شبیه‌ساز زنده پایپ‌لاین RAG' : 'Interactive RAG Retrieval Simulator'}
       </h2>
-      <p class="mt-2 text-xs sm:text-sm text-[#5a7369]">
+      <p class="mt-2 text-xs sm:text-sm text-slate-600">
         {isFa
-          ? 'تخصص پایان‌نامه و پروژه‌های هوش مصنوعی سعید علی‌اکبری را در یک خط لوله بلادرنگ (Vector Search + Chunking + LLM) امتحان کنید.'
-          : 'Experience Saeed Aliakbari’s RAG expertise firsthand: witness real-time vector embedding, cosine similarity, and grounded context.'}
+          ? 'تخصص پیاده‌سازی سیستم‌های RAG و بازیابی هوشمند داده را در یک خط لوله بلادرنگ (Vector Search + Chunking + LLM) امتحان کنید.'
+          : 'Experience production RAG architecture in real time: dense vector embedding, cosine similarity matching, and grounded context synthesis.'}
       </p>
     </div>
 
     <!-- RAG Interactive Console Container -->
-    <div class="bg-white rounded-2xl p-5 sm:p-7 border border-[#e2ece7] shadow-md relative overflow-hidden">
+    <div class="modern-card rounded-3xl p-5 sm:p-8 bg-white border border-slate-200 shadow-sm relative overflow-hidden">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#e2ece7] text-[11px] font-mono">
-        <div class="flex items-center gap-1.5 text-[#1d4d3e] font-bold">
-          <span class="w-2.5 h-2.5 rounded-full bg-[#d96245]"></span>
-          <span>RAG_KERNEL // VECTOR_DB: CHROMA</span>
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200 text-xs font-mono">
+        <div class="flex items-center gap-2 text-slate-800 font-bold">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+          <span>RAG_PIPELINE // VECTOR_STORE: CHROMA // MODEL: LLM_GROUNDED</span>
         </div>
         <div class="flex items-center gap-2">
-          <span id="rag-latency-badge" class="px-2 py-0.5 rounded bg-[#f4fbf8] border border-[#cbe4db] text-[#1d4d3e] font-bold">
+          <span id="rag-latency-badge" class="px-2.5 py-0.5 rounded-md bg-slate-100 border border-slate-200 text-slate-700 font-bold">
             LATENCY: IDLE
           </span>
-          <span class="px-2 py-0.5 rounded bg-[#1d4d3e] text-white font-bold">
+          <span class="px-2.5 py-0.5 rounded-md bg-emerald-600 text-white font-bold">
             TOP-K: 1
           </span>
         </div>
@@ -48,43 +48,43 @@ const isFa = lang === 'fa';
 
       <!-- Quick Preset Prompt Chips -->
       <div class="mt-4 flex flex-wrap items-center gap-2">
-        <span class="text-[11px] font-bold text-[#5a7369] uppercase tracking-wider">
+        <span class="text-xs font-bold text-slate-500">
           {isFa ? 'پرسش‌های پیشنهادی:' : 'Suggested Queries:'}
         </span>
         <button
           type="button"
-          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
-          data-q={isFa ? 'تجربه سعید در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What did Saeed achieve in banking & Behpardakht Mellat?'}
+          class="rag-query-chip text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium transition-all cursor-pointer shadow-2xs"
+          data-q={isFa ? 'تجربه سعید علی‌اکبری در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What is his experience in banking & Behpardakht Mellat?'}
           data-ans={isFa 
             ? 'سعید علی‌اکبری در شرکت به‌پرداخت ملت (بزرگ‌ترین PSP خاورمیانه) معمار ارشد سیستم‌های BPM و راهکارهای هوش مصنوعی بوده و سامانه‌هایی با توان پردازش بیش از ۱۰ هزار تراکنش در ثانیه و الگوریتم‌های اعتبارسنجی شبکه شتاب و شبا را هدایت کرده است.'
             : 'At Behpardakht Mellat (the Middle East’s leading PSP), Saeed engineered high-throughput transaction engines handling 10k+ TPS, automated critical enterprise workflows via BPMN, and formulated banking-grade validation protocols.'}
           data-cos="0.987"
         >
-          {isFa ? '🏦 سوابق بانکی به‌پرداخت' : '🏦 Banking & Behpardakht'}
+          {isFa ? '🏦 سوابق بانکی و به‌پرداخت ملت' : '🏦 Banking & Behpardakht'}
         </button>
 
         <button
           type="button"
-          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
-          data-q={isFa ? 'تخصص سعید در RAG و هوش مصنوعی دانشگاه شهید بهشتی چیست؟' : 'What is his expertise in RAG & Shahid Beheshti AI research?'}
+          class="rag-query-chip text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium transition-all cursor-pointer shadow-2xs"
+          data-q={isFa ? 'تخصص سعید در RAG و هوش مصنوعی مولد چیست؟' : 'What is his expertise in RAG & Generative AI?'}
           data-ans={isFa
-            ? 'سعید در دانشگاه شهید بهشتی تحقیقات پیشرفته‌ای روی Retrieval-Augmented Generation و بازیابی معنایی متون انجام داده است؛ او از ترکیب Chunkerهای معنایی، پایگاه‌های برداری متراکم و Re-ranking ترکیبی برای به حداقل رساندن خطای توهم در مدل‌های زبانی استفاده می‌کند.'
-            : 'Saeed conducted specialized research at Shahid Beheshti University on Retrieval-Augmented Generation, vector embeddings, and cross-encoder reranking, minimizing LLM hallucinations below 1% for mission-critical enterprise workflows.'}
+            ? 'سعید علی‌اکبری در زمینه Retrieval-Augmented Generation و سیستم‌های هوش مصنوعی مولد متخصص است؛ او با بهره‌گیری از تکه‌بندی معنایی متون، پایگاه‌های برداری متراکم (Chroma/Milvus) و بازآرایی ترکیبی (Hybrid Rerank)، خطای توهم را در مدل‌های زبانی به زیر ۱٪ می‌رساند.'
+            : 'Saeed specializes in production RAG systems, employing dense vector embeddings, semantic chunking, and cross-encoder reranking to minimize hallucinations in mission-critical LLM workflows.'}
           data-cos="0.994"
         >
-          {isFa ? '🧠 تخصص RAG دانشگاه بهشتی' : '🧠 RAG Research & SBU Thesis'}
+          {isFa ? '🧠 معماری RAG و مدل‌های زبانی' : '🧠 RAG & Generative AI'}
         </button>
 
         <button
           type="button"
-          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
-          data-q={isFa ? 'آیا سعید علی‌اکبری آماده همکاری و مشاوره در پروژه‌ها است؟' : 'Is Saeed available for engineering leadership or consulting?'}
+          class="rag-query-chip text-xs px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 hover:border-emerald-500 hover:text-emerald-700 text-slate-700 font-medium transition-all cursor-pointer shadow-2xs"
+          data-q={isFa ? 'آیا سعید علی‌اکبری آماده همکاری و مشاوره در پروژه‌ها است؟' : 'Is Saeed available for leadership or consulting?'}
           data-ans={isFa
-            ? 'بله، سعید علی‌اکبری با بیش از ۱۰ سال سابقه هدایت تیم‌های فنی در استارتاپ‌ها (رایامیت) و سازمان‌های کلان، آماده مشاوره معماری هوش مصنوعی، طراحی سیستم‌های RAG و رهبری فنی پروژه‌های بین‌المللی است.'
-            : 'Yes, Saeed Aliakbari brings 10+ years of engineering leadership across startups (Rayamate) and enterprise financial institutions. He is open to AI consulting, RAG pipeline architecture, and high-impact software leadership.'}
+            ? 'بله، سعید علی‌اکبری با بیش از ۱۴ سال سابقه در طراحی نرم‌افزارهای سازمانی و هوش مصنوعی، آماده مشاوره معماری، پیاده‌سازی پایپ‌لاین‌های RAG و هدایت فنی پروژه‌ها است.'
+            : 'Yes, Saeed brings 14+ years of software architecture experience and is open to AI consulting, RAG pipeline implementations, and engineering leadership.'}
           data-cos="0.981"
         >
-          {isFa ? '💼 همکاری و مشاوره فنی' : '💼 Leadership & Consulting'}
+          {isFa ? '💼 همکاری و مشاوره تخصصی' : '💼 Leadership & Consulting'}
         </button>
       </div>
 
@@ -94,82 +94,82 @@ const isFa = lang === 'fa';
           <input
             id="rag-input"
             type="text"
-            class="w-full px-3.5 py-2.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] focus:border-[#1d4d3e] text-xs sm:text-sm text-[#192b23] font-medium transition-all outline-none"
+            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-600 focus:bg-white text-xs sm:text-sm text-slate-900 font-medium transition-all outline-none"
             placeholder={isFa ? 'یک پرسش بنویسید یا دکمه‌های بالا را انتخاب کنید...' : 'Type a query or pick a preset question above...'}
-            value={isFa ? 'تجربه سعید در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What did Saeed achieve in banking & Behpardakht Mellat?'}
+            value={isFa ? 'تجربه سعید علی‌اکبری در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What is his experience in banking & Behpardakht Mellat?'}
           />
         </div>
         <button
           id="rag-run-btn"
           type="button"
-          class="px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white bg-[#d96245] hover:bg-[#c45237] transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
+          class="px-6 py-2.5 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-emerald-600 hover:bg-emerald-700 transition-all shadow-xs cursor-pointer flex items-center justify-center gap-2 shrink-0"
         >
           <span id="rag-btn-spinner" class="hidden w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
           <span>{isFa ? 'اجرای پایپ‌لاین' : 'Execute RAG'}</span>
         </button>
       </div>
 
-      <!-- Pipeline Step Visualizer (4 Compact Cards) -->
+      <!-- Pipeline Step Visualizer (4 Compact Modern Cards) -->
       <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-2.5">
         
         <!-- Step 1 -->
-        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-embed">
-          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
-            <span class="font-bold text-[#1d4d3e]">01 // EMBED</span>
-            <span class="step-status text-[#d96245] font-bold">READY</span>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200" id="step-embed">
+          <div class="flex items-center justify-between text-[11px] font-mono mb-1.5">
+            <span class="font-bold text-slate-800">01 // EMBED</span>
+            <span class="step-status text-emerald-600 font-bold">READY</span>
           </div>
-          <div class="text-[10px] font-mono text-[#1d4d3e] truncate h-6 flex items-center bg-white px-2 rounded border border-[#d6ebe3]" id="embed-vector">
+          <div class="text-[10px] font-mono text-slate-800 truncate h-6 flex items-center bg-white px-2 rounded border border-slate-200" id="embed-vector">
             [0.481, -0.192, ...]
           </div>
         </div>
 
         <!-- Step 2 -->
-        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-cosine">
-          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
-            <span class="font-bold text-[#1d4d3e]">02 // MATCH</span>
-            <span class="step-status text-[#d96245] font-bold">READY</span>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200" id="step-cosine">
+          <div class="flex items-center justify-between text-[11px] font-mono mb-1.5">
+            <span class="font-bold text-slate-800">02 // MATCH</span>
+            <span class="step-status text-emerald-600 font-bold">READY</span>
           </div>
-          <div class="text-[10px] font-mono text-[#1d4d3e] h-6 flex items-center justify-between bg-white px-2 rounded border border-[#d6ebe3]" id="cosine-score">
+          <div class="text-[10px] font-mono text-slate-800 h-6 flex items-center justify-between bg-white px-2 rounded border border-slate-200" id="cosine-score">
             <span>COSINE:</span>
-            <span class="font-bold text-[#d96245]">0.987</span>
+            <span class="font-bold text-emerald-600">0.987</span>
           </div>
         </div>
 
         <!-- Step 3 -->
-        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-chunk">
-          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
-            <span class="font-bold text-[#1d4d3e]">03 // CHUNK</span>
-            <span class="step-status text-[#d96245] font-bold">READY</span>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200" id="step-chunk">
+          <div class="flex items-center justify-between text-[11px] font-mono mb-1.5">
+            <span class="font-bold text-slate-800">03 // CHUNK</span>
+            <span class="step-status text-emerald-600 font-bold">READY</span>
           </div>
-          <div class="text-[10px] font-mono text-[#1d4d3e] truncate h-6 flex items-center bg-white px-2 rounded border border-[#d6ebe3]" id="chunk-snippet">
-            DOC_BEHPARDAKHT
+          <div class="text-[10px] font-mono text-slate-800 truncate h-6 flex items-center bg-white px-2 rounded border border-slate-200" id="chunk-snippet">
+            DOC_BEHPARDAKHT_PSP
           </div>
         </div>
 
         <!-- Step 4 -->
-        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-synth">
-          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
-            <span class="font-bold text-[#1d4d3e]">04 // SYNTH</span>
-            <span class="step-status text-[#d96245] font-bold">READY</span>
+        <div class="p-3 rounded-xl bg-slate-50 border border-slate-200" id="step-synth">
+          <div class="flex items-center justify-between text-[11px] font-mono mb-1.5">
+            <span class="font-bold text-slate-800">04 // SYNTH</span>
+            <span class="step-status text-emerald-600 font-bold">READY</span>
           </div>
-          <div class="text-[10px] font-mono text-[#1d4d3e] h-6 flex items-center justify-between bg-white px-2 rounded border border-[#d6ebe3]" id="synth-status">
+          <div class="text-[10px] font-mono text-slate-800 h-6 flex items-center justify-between bg-white px-2 rounded border border-slate-200" id="synth-status">
             <span>MODEL:</span>
-            <span class="font-bold text-[#d96245]">RAG_GROUND</span>
+            <span class="font-bold text-emerald-600">RAG_GROUND</span>
           </div>
         </div>
 
       </div>
 
       <!-- Output Display Box -->
-      <div class="mt-4 p-4 sm:p-5 rounded-xl bg-[#eef7f4] border border-[#cbe4db] relative">
-        <div class="flex items-center justify-between text-[11px] font-bold text-[#1d4d3e] mb-2 pb-1.5 border-b border-[#d2e8df]">
+      <div class="mt-4 p-4 sm:p-5 rounded-2xl bg-emerald-50/60 border border-emerald-200/80 relative">
+        <div class="flex items-center justify-between text-xs font-bold text-emerald-900 mb-2 pb-1.5 border-b border-emerald-200">
           <span class="flex items-center gap-1.5">
-            <span class="w-2 h-2 rounded-full bg-[#d96245]"></span>
-            {isFa ? 'پاسخ مستند پایپ‌لاین هوش مصنوعی:' : 'Synthesized Grounded Response:'}
+            <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+            {isFa ? 'پاسخ مستند تولیدشده توسط پایپ‌لاین RAG:' : 'Synthesized Grounded Response:'}
           </span>
-          <span class="text-[10px] text-[#5a7369] font-mono" id="tokens-counter">TOKENS: 0</span>
+          <span class="text-[10px] text-slate-500 font-mono" id="tokens-counter">TOKENS: 0</span>
         </div>
-        <p id="rag-output-text" class="text-[#192b23] text-xs sm:text-sm leading-relaxed min-h-[3rem]">
+        <p id="rag-output-text" class="text-slate-800 text-xs sm:text-sm leading-relaxed min-h-[3rem]">
           {isFa 
             ? 'سعید علی‌اکبری در شرکت به‌پرداخت ملت (بزرگ‌ترین PSP خاورمیانه) معمار ارشد سیستم‌های BPM و راهکارهای هوش مصنوعی بوده و سامانه‌هایی با توان پردازش بیش از ۱۰ هزار تراکنش در ثانیه و الگوریتم‌های اعتبارسنجی شبکه شتاب و شبا را هدایت کرده است.'
             : 'At Behpardakht Mellat (the Middle East’s leading PSP), Saeed engineered high-throughput transaction engines handling 10k+ TPS, automated critical enterprise workflows via BPMN, and formulated banking-grade validation protocols.'}
@@ -232,10 +232,10 @@ const isFa = lang === 'fa';
     const randomVec = Array.from({ length: 3 }, () => (Math.random() * 2 - 1).toFixed(3));
     if (embedVector) embedVector.textContent = `[${randomVec.join(', ')}...]`;
 
-    if (cosineScore) cosineScore.innerHTML = `<span>COS:</span><span class="font-bold text-[#d96245]">${currentTargetCos}</span>`;
+    if (cosineScore) cosineScore.innerHTML = `<span>COS:</span><span class="font-bold text-emerald-600">${currentTargetCos}</span>`;
 
     if (chunkSnippet) {
-      const snippets = ['DOC_BEHPARDAKHT_PSP', 'SBU_THESIS_RAG', 'RAYAMATE_AI_SOLUTIONS'];
+      const snippets = ['DOC_BEHPARDAKHT_PSP', 'THESIS_RAG_PIPELINE', 'RAYAMATE_AI_SOLUTIONS'];
       chunkSnippet.textContent = snippets[Math.floor(Math.random() * snippets.length)];
     }
 

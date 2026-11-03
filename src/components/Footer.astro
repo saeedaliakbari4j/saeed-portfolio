@@ -9,43 +9,43 @@ const isFa = lang === 'fa';
 const { profile } = portfolioData;
 ---
 
-<footer class="bg-[#1d4d3e] text-white py-8 border-t border-[#163d31] text-xs">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+<footer class="bg-white py-8 border-t border-slate-200 text-xs text-slate-500">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
     
     <!-- Left / Brand -->
     <div class="flex items-center gap-2 text-center sm:text-start">
-      <span class="text-base font-bold text-white font-vintage">
-        {isFa ? 'سعید علی‌اکبری' : 'Saeed Aliakbari'}
+      <span class="text-sm font-bold text-slate-900">
+        {isFa ? profile.nameFa : profile.nameEn}
       </span>
-      <span class="text-emerald-400">/</span>
-      <span class="text-emerald-200 text-[11px]">
-        {isFa ? 'مهندس نرم‌افزار و معمار هوش مصنوعی' : 'AI Architect & Software Engineer'} &copy; {new Date().getFullYear()}
+      <span class="text-slate-300">/</span>
+      <span class="text-slate-500 text-[11px]">
+        {isFa ? profile.roleFa : profile.roleEn} &copy; {new Date().getFullYear()}
       </span>
     </div>
 
     <!-- Center / Built with -->
-    <div class="text-[11px] text-emerald-200 flex items-center gap-1.5">
+    <div class="text-[11px] text-slate-400 flex items-center gap-1.5">
       <span>BUILT WITH</span>
-      <span class="px-2 py-0.5 rounded bg-[#143a2e] border border-[#276652] text-[#f4d5cc] font-bold">
+      <span class="px-2 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-800 font-bold">
         ASTRO 7
       </span>
     </div>
 
     <!-- Right: Links -->
     <div class="flex items-center gap-4 font-bold text-xs">
-      <a href={profile.github} target="_blank" rel="noopener noreferrer" class="text-emerald-200 hover:text-white transition-colors">
+      <a href={profile.github} target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-emerald-700 transition-colors">
         GitHub
       </a>
-      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="text-emerald-200 hover:text-white transition-colors">
+      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="text-slate-600 hover:text-emerald-700 transition-colors">
         LinkedIn
       </a>
-      <a href={`mailto:${profile.email}`} class="text-emerald-200 hover:text-white transition-colors">
+      <a href={`mailto:${profile.email}`} class="text-slate-600 hover:text-emerald-700 transition-colors">
         Email
       </a>
       <a
         href="#home"
-        class="p-1.5 rounded bg-[#143a2e] border border-[#276652] hover:bg-[#d96245] hover:border-[#d96245] text-white transition-all"
-        title={isFa ? 'بالا' : 'Top'}
+        class="p-1.5 rounded-lg bg-slate-100 hover:bg-emerald-600 hover:text-white text-slate-600 transition-all"
+        title={isFa ? 'بازگشت به بالا' : 'Back to Top'}
       >
         <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />

@@ -1,30 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --color-forest: #1d4d3e;
-  --color-forest-dark: #14382d;
-  --color-mint: #eef7f4;
-  --color-mint-card: #f4fbf8;
-  --color-coral: #d96245;
-  --color-coral-hover: #c45237;
-  --color-cream: #faf8f5;
-  --color-charcoal: #192b23;
-  --color-muted: #5a7369;
-  --color-border: #dbe8e3;
+  --color-primary: #0f172a;
+  --color-accent: #059669;
+  --color-accent-light: #10b981;
+  --color-accent-bg: #ecfdf5;
+  --color-bg-subtle: #f8fafc;
+  --color-border: #e2e8f0;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: #faf8f5;
-  color: #192b23;
-  font-size: 15px; /* compact base font */
+  background-color: #f8fafc;
+  color: #0f172a;
+  font-size: 15px;
 }
 
 body {
   overflow-x: hidden;
   min-height: 100vh;
   position: relative;
-  background-color: #faf8f5;
+  background-color: #f8fafc;
   font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.6;
 }
@@ -39,57 +35,36 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.font-vintage {
-  font-family: 'Fraunces', Georgia, serif;
-}
-
-[dir="rtl"] .font-vintage {
-  font-family: 'Vazirmatn', sans-serif;
-  font-weight: 800;
-}
-
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #f1ede6;
+  background: #f1f5f9;
 }
 ::-webkit-scrollbar-thumb {
-  background: #1d4d3e;
+  background: #cbd5e1;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #d96245;
+  background: #059669;
 }
 
-/* Editorial Underline Effect */
-.editorial-underline {
-  position: relative;
-  display: inline-block;
-  text-decoration: none;
-}
-.editorial-underline::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: 1px;
-  width: 100%;
-  height: 2.5px;
-  background-color: #d96245;
-  opacity: 0.65;
-  border-radius: 2px;
-}
-
-/* Editorial Card */
-.editorial-card {
+/* Modern Card */
+.modern-card {
   background: #ffffff;
-  border: 1px solid #e2ece7;
-  box-shadow: 0 2px 12px -2px rgba(29, 77, 62, 0.05);
-  transition: all 0.25s ease-out;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
-.editorial-card:hover {
+.modern-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px -3px rgba(29, 77, 62, 0.09);
-  border-color: #1d4d3e;
+}
+
+/* Subtle Dot Pattern */
+.bg-dot-pattern {
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 24px 24px;
 }

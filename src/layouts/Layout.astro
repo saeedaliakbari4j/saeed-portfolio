@@ -33,27 +33,27 @@ const dir = isFa ? 'rtl' : 'ltr';
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/saeed.jpg" />
 
-    <!-- Google Fonts: Vazirmatn (Persian), Fraunces (Vintage English Serif), Plus Jakarta Sans -->
+    <!-- Google Fonts: Vazirmatn & Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#faf8f5] text-[#192b23] min-h-screen selection:bg-[#d96245]/20 selection:text-[#1d4d3e] antialiased">
-    <!-- Navbar Header -->
+  <body class="bg-[#f8fafc] text-[#0f172a] min-h-screen selection:bg-emerald-500/20 selection:text-emerald-900 antialiased">
+    <!-- Navbar -->
     <Navbar lang={lang} />
 
     <!-- Main Content Area -->
-    <main class="relative z-10 pt-[60px]">
+    <main class="relative z-10 pt-[76px]">
       <slot />
     </main>
 
     <!-- Footer -->
     <Footer lang={lang} />
 
-    <!-- Interactive Console (Minimalist Drawer) -->
+    <!-- Interactive Terminal Console -->
     <InteractiveTerminal lang={lang} />
   </body>
 </html>

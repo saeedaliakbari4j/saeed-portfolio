@@ -9,111 +9,155 @@ const isFa = lang === 'fa';
 const { profile } = portfolioData;
 ---
 
-<section id="home" class="py-6 sm:py-10 bg-[#faf8f5]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+<section id="home" class="py-8 sm:py-12 bg-[#f8fafc]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <!-- Contained Hero Card: Clean, elegant, proportional -->
-    <div class="bg-white rounded-3xl border border-[#e2ece7] shadow-lg overflow-hidden grid grid-cols-1 md:grid-cols-12 items-stretch">
+    <!-- Hero Bento Card -->
+    <div class="modern-card rounded-3xl p-6 sm:p-10 lg:p-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white border border-slate-200/90 shadow-sm relative overflow-hidden">
       
-      <!-- Text Column (Col 7) -->
-      <div class="md:col-span-7 bg-[#eef7f4] p-6 sm:p-10 lg:p-12 flex flex-col justify-center order-2 md:order-1">
-        
-        <!-- Coral Greeting -->
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-black text-[#d96245] tracking-tight leading-tight mb-4 font-vintage">
-          {isFa ? 'سلام! من سعید هستم.' : "Hi! I'm Saeed Aliakbari."}
-        </h1>
+      <!-- Subtle Ambient Glow in background -->
+      <div class="absolute -top-24 -end-24 w-72 h-72 rounded-full bg-emerald-100/60 blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -start-24 w-72 h-72 rounded-full bg-indigo-100/50 blur-3xl pointer-events-none"></div>
 
-        <!-- Subheading / Bio with Editorial Underlines -->
-        <div class="text-sm sm:text-base lg:text-lg text-[#1d4d3e] leading-relaxed mb-6 font-medium">
-          {isFa ? (
-            <p>
-              من یک <span class="editorial-underline font-bold text-[#14382d]">مهندس ارشد نرم‌افزار</span> و <span class="editorial-underline font-bold text-[#14382d]">معمار هوش مصنوعی</span> با بیش از ۱۰ سال سابقه در توسعه سیستم‌های بانکی به‌پرداخت ملت هستم که عاشق طراحی <span class="editorial-underline font-bold text-[#14382d]">خطوط لوله پیشرفته RAG</span> و ساخت سامانه‌های وب مقیاس‌پذیرم.
-            </p>
-          ) : (
-            <p>
-              I'm a <span class="editorial-underline font-bold text-[#14382d]">lead software engineer</span> &amp; <span class="editorial-underline font-bold text-[#14382d]">AI architect</span> with a knack for high-scale FinTech systems who loves engineering <span class="editorial-underline font-bold text-[#14382d]">intelligent RAG pipelines</span> and building resilient web platforms.
-            </p>
-          )}
+      <!-- Text Column (Col 7) -->
+      <div class="lg:col-span-7 flex flex-col items-start gap-4 z-10 order-2 lg:order-1">
+        
+        <!-- Live Status Badge -->
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200/80 text-emerald-800 text-xs font-semibold">
+          <span class="relative flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span>{isFa ? profile.availabilityFa : profile.availabilityEn}</span>
         </div>
 
+        <!-- Main Title -->
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.2]">
+          {isFa ? profile.greetingFa : profile.greetingEn}
+        </h1>
+
+        <!-- Role Subtitle -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-slate-900 text-white text-xs sm:text-sm font-bold shadow-xs">
+          <span>{isFa ? profile.roleFa : profile.roleEn}</span>
+        </div>
+
+        <!-- Slogan / Motto Callout -->
+        <div class="w-full p-3.5 rounded-xl bg-emerald-50/70 border-r-4 rtl:border-r-4 ltr:border-l-4 border-emerald-500 text-emerald-950 font-bold text-sm sm:text-base leading-snug">
+          <span>{isFa ? profile.sloganFa : profile.sloganEn}</span>
+        </div>
+
+        <!-- Headline & Bio Description -->
+        <p class="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+          {isFa ? profile.headlineFa : profile.headlineEn}
+        </p>
+
         <!-- Action Buttons -->
-        <div class="flex flex-wrap items-center gap-3">
+        <div class="flex flex-wrap items-center gap-3 pt-2">
           <a
-            href="#about"
-            class="inline-flex items-center justify-center bg-[#d96245] hover:bg-[#c45237] text-white font-bold text-xs tracking-wider uppercase px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
+            href="#contact"
+            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 hover:shadow-lg transition-all"
           >
-            {isFa ? 'بیشتر بدانید!' : 'TELL ME MORE!'}
+            <span>{isFa ? 'شروع همکاری و پیام مستقیم' : 'Start a Conversation'}</span>
+            <span class="rtl:rotate-180">→</span>
           </a>
 
           <a
             href="#rag-lab"
-            class="inline-flex items-center justify-center bg-white border border-[#1d4d3e] text-[#1d4d3e] hover:bg-[#1d4d3e] hover:text-white font-bold text-xs tracking-wider uppercase px-4 py-2.5 rounded-lg transition-all"
+            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-white border border-slate-300 hover:border-emerald-600 text-slate-800 hover:text-emerald-700 font-bold text-xs sm:text-sm transition-all"
           >
-            {isFa ? 'آزمایشگاه RAG' : 'EXPLORE AI LAB'}
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>{isFa ? 'آزمایشگاه زنده RAG' : 'Launch RAG Lab'}</span>
+          </a>
+
+          <a
+            href={profile.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs sm:text-sm transition-all"
+            title="GitHub"
+          >
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>گیت‌هاب</span>
           </a>
         </div>
 
       </div>
 
-      <!-- Photo Column (Col 5) -->
-      <div class="md:col-span-5 bg-[#f6eee5] p-6 sm:p-8 flex items-center justify-center order-1 md:order-2 relative overflow-hidden">
-        <!-- Subtle organic backdrop doodle -->
-        <div class="absolute -right-8 -bottom-8 w-48 h-48 rounded-full bg-[#ebdcd0] opacity-50 pointer-events-none"></div>
-        <div class="absolute -left-8 -top-8 w-40 h-40 rounded-full bg-[#dcece6] opacity-50 pointer-events-none"></div>
-
-        <div class="relative z-10 w-full max-w-[260px] sm:max-w-[290px] aspect-[4/5] rounded-2xl overflow-hidden shadow-md border-2 border-white bg-white group">
-          <img
-            src={profile.avatarUrl}
-            alt={isFa ? profile.nameFa : profile.nameEn}
-            class="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
-            loading="eager"
-          />
-          <!-- Badge in corner -->
-          <div class="absolute bottom-2.5 start-2.5 end-2.5 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-lg shadow-xs border border-[#e2ece7] text-center">
-            <span class="text-xs font-bold text-[#1d4d3e] block leading-tight">
-              {isFa ? profile.nameFa : profile.nameEn}
-            </span>
-            <span class="text-[10px] text-[#d96245] font-semibold">
-              {isFa ? 'معمار هوش مصنوعی و سیستم‌های بانکی' : 'AI Architect & Software Engineer'}
-            </span>
+      <!-- Visual Photo Card (Col 5) -->
+      <div class="lg:col-span-5 flex justify-center z-10 order-1 lg:order-2">
+        <div class="relative w-full max-w-[280px] sm:max-w-[320px]">
+          
+          <!-- Outer subtle gradient frame -->
+          <div class="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200/90 bg-white p-2">
+            <div class="rounded-xl overflow-hidden aspect-[4/5] bg-slate-100 relative group">
+              <img
+                src={profile.avatarUrl}
+                alt={isFa ? profile.nameFa : profile.nameEn}
+                class="w-full h-full object-cover object-center group-hover:scale-103 transition-transform duration-500"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent"></div>
+              
+              <!-- Bottom floating badge inside image -->
+              <div class="absolute bottom-3 start-3 end-3 p-2.5 rounded-lg bg-white/95 backdrop-blur-xs shadow-sm border border-slate-200 text-center">
+                <span class="text-xs font-bold text-slate-900 block leading-tight">
+                  {isFa ? profile.nameFa : profile.nameEn}
+                </span>
+                <span class="text-[10px] text-emerald-700 font-semibold block mt-0.5">
+                  {isFa ? 'معمار هوش مصنوعی و سیستم‌های بانکی' : 'AI Architect & Software Engineer'}
+                </span>
+              </div>
+            </div>
           </div>
+
+          <!-- Micro Floating Pill 1 -->
+          <div class="absolute -top-3 -start-3 bg-white px-3 py-1.5 rounded-xl shadow-md border border-slate-200 text-[11px] font-bold text-slate-800 flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>{isFa ? '+۱۴ سال سابقه تخصصی' : '14+ Years Experience'}</span>
+          </div>
+
         </div>
       </div>
 
     </div>
 
-    <!-- Specializing Subtitle & Partner Logos Ribbon -->
-    <div class="mt-8 pt-6 border-t border-[#e2ece7] text-center">
-      <h2 class="text-sm sm:text-base font-bold text-[#1d4d3e] mb-4 font-vintage">
+    <!-- Partner & Experience Ribbon -->
+    <div class="mt-8 pt-6 border-t border-slate-200/80 text-center">
+      <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
         {isFa
-          ? 'تخصص ویژه در سیستم‌های RAG، معماری سامانه‌های بانکی و توسعه نرم‌افزار'
-          : 'Specializing in RAG Systems, FinTech Platforms, and AI Architecture'}
-      </h2>
+          ? 'همکاری‌های سازمانی، پژوهش‌های دانشگاهی و تکنولوژی‌های کلیدی'
+          : 'Enterprise Background, Academic Roots & Core Technologies'}
+      </div>
 
-      <!-- Ribbon of Brands / Tech Logos -->
-      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-semibold text-[#5a7369]">
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#d96245]"></span>
-          <span>{isFa ? 'به‌پرداخت ملت' : 'Behpardakht Mellat'}</span>
+      <div class="flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs font-bold text-slate-700">
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+          <span>{isFa ? 'به‌پرداخت ملت (PSP)' : 'Behpardakht Mellat'}</span>
         </div>
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e]"></span>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-800"></span>
           <span>{isFa ? 'دانشگاه شهید بهشتی' : 'Shahid Beheshti Univ.'}</span>
         </div>
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#d96245]"></span>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
           <span>{isFa ? 'رایامیت' : 'Rayamate'}</span>
         </div>
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e]"></span>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-indigo-600"></span>
           <span>Python &amp; PyTorch</span>
         </div>
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#d96245]"></span>
-          <span>LangChain &amp; RAG</span>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+          <span>RAG &amp; LLM Pipelines</span>
         </div>
-        <div class="flex items-center gap-1.5 hover:text-[#1d4d3e] transition-colors">
-          <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e]"></span>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-slate-900"></span>
+          <span>C# / .NET Enterprise</span>
+        </div>
+        <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-2xs">
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span>
           <span>Astro Framework</span>
         </div>
       </div>

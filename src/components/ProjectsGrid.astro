@@ -9,19 +9,19 @@ const isFa = lang === 'fa';
 const { projects } = portfolioData;
 ---
 
-<section id="projects" class="py-14 sm:py-16 bg-[#faf8f5] border-b border-[#e5efe9]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+<section id="projects" class="py-14 sm:py-20 bg-[#f8fafc] border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
       <div>
-        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold tracking-wider uppercase mb-2">
           <span>FEATURED WORK</span>
         </div>
-        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
           {isFa ? 'پروژه‌های شاخص و کدهای منبع' : 'Featured Projects & Open Source'}
         </h2>
-        <p class="mt-1.5 text-xs sm:text-sm text-[#5a7369] max-w-xl">
+        <p class="mt-1.5 text-xs sm:text-sm text-slate-600 max-w-xl">
           {isFa
             ? 'مجموعه‌ای از سامانه‌های هوش مصنوعی، خطوط لوله RAG، ابزارهای بانکی و فریم‌ورک‌های توسعه‌یافته با کدهای منبع در گیت‌هاب.'
             : 'Production systems, RAG data engines, banking protocol validators, and interactive applications.'}
@@ -29,31 +29,31 @@ const { projects } = portfolioData;
       </div>
 
       <!-- Filter Tabs -->
-      <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white border border-[#e2ece7] self-start md:self-auto">
+      <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white border border-slate-200 self-start md:self-auto shadow-2xs">
         <button
           type="button"
-          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-xs"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-slate-900 text-white shadow-xs"
           data-category="all"
         >
           {isFa ? 'همه' : 'All'}
         </button>
         <button
           type="button"
-          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-slate-600 hover:text-slate-900"
           data-category="ai"
         >
           AI &amp; RAG
         </button>
         <button
           type="button"
-          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-slate-600 hover:text-slate-900"
           data-category="fintech"
         >
           FinTech
         </button>
         <button
           type="button"
-          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-slate-600 hover:text-slate-900"
           data-category="web"
         >
           Web
@@ -65,41 +65,41 @@ const { projects } = portfolioData;
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="projects-container">
       {projects.map((item) => (
         <article
-          class="project-card editorial-card rounded-2xl p-5 flex flex-col justify-between relative group"
+          class="project-card modern-card rounded-2xl p-5 sm:p-6 flex flex-col justify-between relative group"
           data-category={item.category}
         >
           <div>
             <div class="flex items-center justify-between gap-2 mb-3">
-              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-[#eef7f4] text-[#1d4d3e]">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
                 {isFa ? item.categoryLabelFa : item.categoryLabelEn}
               </span>
               {item.stats && (
-                <span class="text-[10px] font-mono font-bold text-[#d96245] bg-[#fdf2ee] px-2 py-0.5 rounded border border-[#f5d6cc]">
+                <span class="text-[10px] font-mono font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
                   {item.stats}
                 </span>
               )}
             </div>
 
-            <h3 class="text-lg font-bold text-[#1d4d3e] group-hover:text-[#d96245] transition-colors mb-2 leading-snug font-vintage">
+            <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors mb-2 leading-snug">
               {isFa ? item.titleFa : item.titleEn}
             </h3>
 
-            <p class="text-xs text-[#3d594f] leading-relaxed font-normal mb-4">
+            <p class="text-xs text-slate-600 leading-relaxed font-normal mb-4">
               {isFa ? item.descFa : item.descEn}
             </p>
 
-            <div class="mb-4 p-3 rounded-lg bg-[#faf8f5] border border-[#e2ece7] text-[11px] text-[#5a7369]">
-              <span class="text-[#d96245] font-bold text-[10px] block mb-0.5 uppercase">
-                {isFa ? 'ویژگی کلیدی:' : 'Key Highlight:'}
+            <div class="mb-4 p-3 rounded-xl bg-slate-50 border border-slate-200 text-[11px] text-slate-600">
+              <span class="text-emerald-700 font-bold text-[10px] block mb-0.5 uppercase">
+                {isFa ? 'ویژگی کلیدی معماری:' : 'Key Highlight:'}
               </span>
               <span>{isFa ? item.highlightsFa : item.highlightsEn}</span>
             </div>
           </div>
 
-          <div class="pt-4 border-t border-[#e2ece7] flex flex-col gap-3">
+          <div class="pt-4 border-t border-slate-100 flex flex-col gap-3">
             <div class="flex flex-wrap gap-1">
               {item.tags.map((t) => (
-                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#eef7f4] text-[#1d4d3e] font-medium">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">
                   {t}
                 </span>
               ))}
@@ -109,10 +109,10 @@ const { projects } = portfolioData;
               href={item.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-between px-3.5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider text-[#1d4d3e] bg-[#faf8f5] border border-[#cbe4db] hover:bg-[#1d4d3e] hover:text-white transition-all group/btn"
+              class="inline-flex items-center justify-between px-3.5 py-2 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-800 bg-white border border-slate-200 hover:border-emerald-600 hover:text-emerald-700 transition-all shadow-2xs"
             >
               <span>{isFa ? 'مشاهده در گیت‌هاب' : 'GitHub Repository'}</span>
-              <span class="rtl:rotate-180 group-hover/btn:translate-x-1 transition-transform">→</span>
+              <span class="rtl:rotate-180">→</span>
             </a>
           </div>
         </article>
@@ -132,9 +132,9 @@ const { projects } = portfolioData;
       const cat = target.getAttribute('data-category');
 
       filterBtns.forEach((b) => {
-        b.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]';
+        b.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-slate-600 hover:text-slate-900';
       });
-      target.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-xs';
+      target.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-slate-900 text-white shadow-xs';
 
       cards.forEach((card) => {
         const cardCat = card.getAttribute('data-category');

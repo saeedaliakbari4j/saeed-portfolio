@@ -9,34 +9,34 @@ const isFa = lang === 'fa';
 const { profile, stats } = portfolioData;
 ---
 
-<section id="about" class="py-12 sm:py-16 bg-white border-b border-[#e5efe9]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+<section id="about" class="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
       
       <!-- Left Column: Story -->
-      <div class="lg:col-span-7 flex flex-col gap-4">
+      <div class="lg:col-span-7 flex flex-col gap-5">
         
-        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase w-fit">
-          <span>{isFa ? 'درباره من و مسیر حرفه‌ای' : 'ABOUT & BACKGROUND'}</span>
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold tracking-wider uppercase w-fit">
+          <span>{isFa ? 'درباره من و مسیر حرفه‌ای' : 'About & Background'}</span>
         </div>
 
-        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] leading-snug font-vintage">
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 leading-snug">
           {isFa
-            ? 'پیوند زدن علم داده و هوش مصنوعی با سامانه‌های بانکی با ضریب اطمینان ۹۹.۹٪'
-            : 'Bridging Advanced AI & RAG with Mission-Critical Banking Engines'}
+            ? 'تلفیق هوش مصنوعی مولد با زیرساخت‌های کلان بانکی با قابلیت اطمینان ۹۹.۹٪'
+            : 'Bridging Generative AI & RAG with Mission-Critical Banking Engines'}
         </h2>
 
-        <p class="text-xs sm:text-sm text-[#3d594f] leading-relaxed font-normal">
+        <p class="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
           {isFa ? profile.bioFa : profile.bioEn}
         </p>
 
         <!-- Stats Grid -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-4 border-t border-[#e2ece7]">
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-4 border-t border-slate-200">
           {stats.map((s) => (
-            <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7] text-center">
-              <div class="text-2xl sm:text-3xl font-black text-[#d96245] font-vintage">{s.value}</div>
-              <div class="text-[10px] text-[#5a7369] font-medium mt-0.5">
+            <div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200/90 text-center">
+              <div class="text-2xl sm:text-3xl font-black text-emerald-700">{s.value}</div>
+              <div class="text-[11px] text-slate-600 font-medium mt-0.5 leading-tight">
                 {isFa ? s.labelFa : s.labelEn}
               </div>
             </div>
@@ -45,44 +45,48 @@ const { profile, stats } = portfolioData;
 
       </div>
 
-      <!-- Right Column: Highlight Card -->
+      <!-- Right Column: Engineering Principles Card -->
       <div class="lg:col-span-5">
-        <div class="bg-[#1d4d3e] text-white rounded-2xl p-6 sm:p-7 shadow-lg relative overflow-hidden">
+        <div class="modern-card rounded-3xl p-6 sm:p-8 bg-slate-900 text-white shadow-xl relative overflow-hidden">
           
-          <div class="text-[10px] font-mono text-[#f4d5cc] uppercase tracking-widest mb-3">
-            {isFa ? 'اصول مهندسی نرم‌افزار' : 'ENGINEERING PRINCIPLES'}
+          <div class="text-xs font-mono text-emerald-400 uppercase tracking-widest mb-3">
+            {isFa ? 'فلسفه و چشم‌انداز مهندسی' : 'ENGINEERING PHILOSOPHY'}
           </div>
 
-          <h3 class="text-lg font-bold text-white mb-4 leading-snug font-vintage">
+          <h3 class="text-lg sm:text-xl font-bold text-white mb-5 leading-snug">
             {isFa
-              ? '«ساختن سیستم‌هایی که در لود بالا پایدارند، کمترین خطای انسانی دارند و کار با آن‌ها لذت‌بخش است.»'
-              : '"Building resilient architectures that scale smoothly with zero downtime and intuitive design."'}
+              ? '«ساختن سیستم‌هایی که در ترافیک‌های سنگین بدون افت کارایی پایدارند و هوش مصنوعی را به ابزاری مولد برای کسب‌وکار تبدیل می‌کنند.»'
+              : '"Building robust software architectures that withstand massive traffic loads while translating AI into production value."'}
           </h3>
 
-          <ul class="space-y-3 text-xs text-emerald-100 font-normal border-t border-[#276652] pt-4">
-            <li class="flex items-start gap-2">
-              <span class="text-[#d96245] font-bold text-sm leading-none">✓</span>
-              <span>{isFa ? 'بیش از ۱۰ سال تجربه کار با Python، C# .NET و وب مدرن' : '10+ years in Python, C# .NET Core, and modern web architectures'}</span>
+          <ul class="space-y-3.5 text-xs text-slate-300 font-normal border-t border-slate-800 pt-5">
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold text-sm leading-none">✓</span>
+              <span>{isFa ? 'بیش از ۱۴ سال سابقه در C# .NET Core، پایتون و سیستم‌های توزیع‌شده' : '14+ years in C# .NET Core, Python, and distributed enterprise systems'}</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#d96245] font-bold text-sm leading-none">✓</span>
-              <span>{isFa ? 'پژوهش‌های تز ارشد در زمینه RAG و بازیابی معنایی در دانشگاه شهید بهشتی' : 'M.Sc. research on RAG pipelines & semantic vector retrieval at Shahid Beheshti Univ.'}</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold text-sm leading-none">✓</span>
+              <span>{isFa ? 'فارغ‌التحصیل کارشناسی ارشد مهندسی کامپیوتر از دانشگاه شهید بهشتی' : 'M.Sc. in Computer Engineering & Software Systems from Shahid Beheshti Univ.'}</span>
             </li>
-            <li class="flex items-start gap-2">
-              <span class="text-[#d96245] font-bold text-sm leading-none">✓</span>
-              <span>{isFa ? 'رهبری فنی در رایامیت و توسعه سامانه‌های بانکی در به‌پرداخت ملت' : 'Technical leadership at Rayamate & transaction systems at Behpardakht Mellat'}</span>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold text-sm leading-none">✓</span>
+              <span>{isFa ? 'توسعه سامانه‌های پردازش تراکنش با لود بالا در به‌پرداخت ملت (PSP)' : 'Engineering high-throughput transaction engines at Behpardakht Mellat'}</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <span class="text-emerald-400 font-bold text-sm leading-none">✓</span>
+              <span>{isFa ? 'طراحی و پیاده‌سازی سیستم‌های RAG و مدل‌های هوش مصنوعی در رایامیت' : 'Architecting production RAG & Generative AI pipelines at Rayamate'}</span>
             </li>
           </ul>
 
-          <div class="mt-6 pt-4 border-t border-[#276652] flex items-center justify-between text-xs">
-            <span class="text-emerald-200 text-[11px]">
-              {isFa ? 'محل سکونت:' : 'Location:'} <strong>{isFa ? profile.locationFa : profile.locationEn}</strong>
+          <div class="mt-6 pt-5 border-t border-slate-800 flex items-center justify-between text-xs">
+            <span class="text-slate-400 text-[11px]">
+              {isFa ? 'محل فعالیت:' : 'Location:'} <strong class="text-white">{isFa ? profile.locationFa : profile.locationEn}</strong>
             </span>
             <a
               href="#contact"
-              class="text-[11px] font-bold uppercase tracking-wider text-[#f4d5cc] hover:text-white underline underline-offset-2"
+              class="text-[11px] font-bold text-emerald-400 hover:text-emerald-300 underline underline-offset-4"
             >
-              {isFa ? 'ارتباط مستقیم ←' : 'Get in touch →'}
+              {isFa ? 'گفتگو درباره پروژه ←' : 'Start a discussion →'}
             </a>
           </div>
 

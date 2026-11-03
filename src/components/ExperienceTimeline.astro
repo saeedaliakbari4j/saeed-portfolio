@@ -9,75 +9,75 @@ const isFa = lang === 'fa';
 const { experiences } = portfolioData;
 ---
 
-<section id="experience" class="py-14 sm:py-16 bg-white border-b border-[#e5efe9]">
+<section id="experience" class="py-14 sm:py-20 bg-white border-b border-slate-200/80">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-10">
-      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
-        <span>TRACK RECORD</span>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold tracking-wider uppercase mb-2">
+        <span>CAREER TRACK RECORD</span>
       </div>
-      <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
         {isFa ? 'سوابق کاری، رهبری فنی و پژوهش‌ها' : 'Engineering Leadership & Career History'}
       </h2>
-      <p class="mt-2 text-xs sm:text-sm text-[#5a7369]">
+      <p class="mt-2 text-xs sm:text-sm text-slate-600">
         {isFa
-          ? 'بیش از ۱۰ سال همکاری با بازیگران اصلی صنعت پرداخت، بنیان‌گذاری استارتاپ‌های وب و پژوهش‌های پیشرو در هوش مصنوعی.'
-          : 'A decade of high-impact engineering across payment providers, technology ventures, and academic AI labs.'}
+          ? 'بیش از ۱۴ سال سابقه در توسعه سامانه‌های سازمانی، پلتفرم‌های پرداخت و معماری راهکارهای هوشمند.'
+          : 'Over 14 years of engineering leadership across financial institutions, tech startups, and academic foundations.'}
       </p>
     </div>
 
-    <!-- Timeline Circuit -->
+    <!-- Timeline Road -->
     <div class="relative max-w-3xl mx-auto">
       
-      <!-- Central Circuit Line -->
-      <div class="absolute top-0 bottom-0 start-3 sm:start-6 w-0.5 bg-[#d0e5dd]"></div>
+      <!-- Central Line -->
+      <div class="absolute top-0 bottom-0 start-3 sm:start-6 w-0.5 bg-slate-200"></div>
 
       <div class="flex flex-col gap-6 sm:gap-8">
         {experiences.map((exp, idx) => (
           <div class="relative ps-8 sm:ps-14 group">
             
             <!-- Node Anchor -->
-            <div class="absolute top-2 start-1.5 sm:start-4.5 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-[#1d4d3e] flex items-center justify-center group-hover:border-[#d96245] transition-all">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e] group-hover:bg-[#d96245]"></span>
+            <div class="absolute top-3 start-1.5 sm:start-4.5 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-emerald-600 flex items-center justify-center group-hover:scale-125 transition-all shadow-xs">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
             </div>
 
             <!-- Experience Card Content -->
-            <div class="editorial-card rounded-2xl p-5 sm:p-6 relative">
+            <div class="modern-card rounded-2xl p-5 sm:p-6 relative">
               
               <!-- Header Row -->
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 mb-3 border-b border-[#e2ece7]">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 mb-3 border-b border-slate-100">
                 <div>
                   <div class="flex flex-wrap items-center gap-2 mb-0.5">
-                    <h3 class="text-base sm:text-lg font-bold text-[#1d4d3e] group-hover:text-[#d96245] transition-colors font-vintage">
+                    <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                       {isFa ? exp.roleFa : exp.roleEn}
                     </h3>
                     {exp.badgeFa && (
-                      <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#eef7f4] text-[#1d4d3e]">
+                      <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
                         {isFa ? exp.badgeFa : exp.badgeEn}
                       </span>
                     )}
                   </div>
-                  <div class="text-xs sm:text-sm font-bold text-[#d96245]">
+                  <div class="text-xs sm:text-sm font-bold text-emerald-700">
                     {isFa ? exp.companyFa : exp.companyEn}
                   </div>
                 </div>
 
-                <div class="flex flex-col sm:items-end text-[11px] font-semibold text-[#5a7369]">
-                  <span class="text-[#1d4d3e] font-bold">{isFa ? exp.periodFa : exp.periodEn}</span>
+                <div class="flex flex-col sm:items-end text-[11px] font-semibold text-slate-500">
+                  <span class="text-slate-900 font-bold">{isFa ? exp.periodFa : exp.periodEn}</span>
                   <span>{isFa ? exp.locationFa : exp.locationEn}</span>
                 </div>
               </div>
 
               <!-- Description -->
-              <p class="text-xs sm:text-sm text-[#3d594f] leading-relaxed font-normal mb-4">
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal mb-4">
                 {isFa ? exp.descFa : exp.descEn}
               </p>
 
               <!-- Skills tags -->
               <div class="flex flex-wrap gap-1.5">
                 {exp.skills.map((s) => (
-                  <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#faf8f5] border border-[#e2ece7] text-[#1d4d3e]">
+                  <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-slate-50 border border-slate-200 text-slate-700">
                     {s}
                   </span>
                 ))}

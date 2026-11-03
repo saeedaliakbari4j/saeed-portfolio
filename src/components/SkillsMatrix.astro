@@ -9,61 +9,61 @@ const isFa = lang === 'fa';
 const { skillCategories } = portfolioData;
 ---
 
-<section id="skills" class="py-14 sm:py-16 bg-white border-b border-[#e5efe9]">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+<section id="skills" class="py-14 sm:py-20 bg-white border-b border-slate-200/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
     <div class="text-center max-w-2xl mx-auto mb-10">
-      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-slate-800 text-xs font-bold tracking-wider uppercase mb-2">
         <span>CORE CAPABILITIES</span>
       </div>
-      <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
         {isFa ? 'ماتریس تخصصی و توانمندی‌های مهندسی' : 'Technical Mastery & Core Domains'}
       </h2>
-      <p class="mt-2 text-xs sm:text-sm text-[#5a7369]">
+      <p class="mt-2 text-xs sm:text-sm text-slate-600">
         {isFa
-          ? 'بیش از یک دهه تجربه در تلاقی سیستم‌های پرسرعت، بانکداری نوین و مدل‌های پیشرفته هوش مصنوعی.'
-          : 'A decade of battle-tested engineering at the crossroads of low-latency systems, next-gen FinTech, and AI.'}
+          ? 'بیش از ۱۴ سال سابقه در تلاقی سیستم‌های پرسرعت، بانکداری نوین و مدل‌های پیشرفته هوش مصنوعی.'
+          : '14+ years of battle-tested engineering at the crossroads of low-latency systems, FinTech, and AI.'}
       </p>
     </div>
 
     <!-- 4 Cards Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
       {skillCategories.map((cat, idx) => (
-        <div class="editorial-card rounded-2xl p-5 sm:p-6 relative group">
+        <div class="modern-card rounded-2xl p-5 sm:p-6 relative group">
           
           <!-- Category Header -->
-          <div class="flex items-center justify-between pb-3.5 mb-4 border-b border-[#e2ece7]">
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-100">
             <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-lg bg-[#eef7f4] border border-[#cbe4db] flex items-center justify-center text-[#1d4d3e] font-bold text-xs">
+              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center font-bold text-xs">
                 0{idx + 1}
               </div>
-              <h3 class="text-base sm:text-lg font-bold text-[#1d4d3e] group-hover:text-[#d96245] transition-colors font-vintage">
+              <h3 class="text-base sm:text-lg font-bold text-slate-900 group-hover:text-emerald-700 transition-colors">
                 {isFa ? cat.titleFa : cat.titleEn}
               </h3>
             </div>
-            <span class="text-[10px] font-bold text-[#d96245] bg-[#fbf0ec] px-2 py-0.5 rounded-md">
-              EXPERT
+            <span class="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+              MASTERY
             </span>
           </div>
 
           <!-- Skill Items -->
-          <div class="flex flex-col gap-3.5">
+          <div class="flex flex-col gap-3">
             {cat.items.map((skill) => (
               <div class="flex flex-col gap-1">
                 <div class="flex items-center justify-between text-xs">
-                  <span class="font-bold text-[#192b23]">{skill.name}</span>
-                  <span class="font-mono font-bold text-[#d96245] text-xs">{skill.level}%</span>
+                  <span class="font-bold text-slate-800">{skill.name}</span>
+                  <span class="font-mono font-bold text-emerald-700 text-xs">{skill.level}%</span>
                 </div>
                 
-                <div class="h-2 w-full rounded-full bg-[#eef7f4] overflow-hidden p-[1px] border border-[#d2e8df]">
+                <div class="h-2 w-full rounded-full bg-slate-100 overflow-hidden p-[1px] border border-slate-200">
                   <div
-                    class="h-full rounded-full bg-gradient-to-r from-[#d96245] to-[#f2967e]"
+                    class="h-full rounded-full bg-gradient-to-r from-emerald-500 to-teal-400"
                     style={`width: ${skill.level}%`}
                   ></div>
                 </div>
 
-                <span class="text-[10px] text-[#5a7369] font-normal">
+                <span class="text-[10px] text-slate-500 font-normal">
                   {isFa ? skill.noteFa : skill.noteEn}
                 </span>
               </div>
