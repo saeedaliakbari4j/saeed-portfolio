@@ -1,0 +1,95 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+interface Props {
+  lang: 'fa' | 'en';
+}
+const { lang } = Astro.props;
+const isFa = lang === 'fa';
+const { profile, stats } = portfolioData;
+---
+
+<section id="about" class="py-20 bg-[#faf8f5] border-b border-[#e5efe9]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Story -->
+      <div class="lg:col-span-7 flex flex-col gap-6">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e8f5f1] border border-[#cbe4db] text-[#1d4d3e] text-xs font-bold tracking-wider uppercase w-fit">
+          <span>{isFa ? 'درباره من و مسیر حرفه‌ای' : 'ABOUT & BACKGROUND'}</span>
+        </div>
+
+        <h2 class="font-serif-vintage text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d4d3e] leading-[1.25]">
+          {isFa
+            ? 'پیوند زدن علم داده و هوش مصنوعی با سامانه‌های بانکی با ضریب اطمینان ۹۹.۹٪'
+            : 'Bridging Advanced AI & RAG with Mission-Critical Banking Engines'}
+        </h2>
+
+        <p class="text-base sm:text-lg text-[#3d594f] leading-relaxed font-light">
+          {isFa ? profile.bioFa : profile.bioEn}
+        </p>
+
+        <!-- Stats Grid with warm editorial styling -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-[#e2ece7]">
+          {stats.map((s) => (
+            <div class="bg-white rounded-xl p-4 border border-[#e2ece7] shadow-sm text-center">
+              <div class="font-serif-vintage text-3xl sm:text-4xl font-bold text-[#e07253]">{s.value}</div>
+              <div class="text-xs text-[#526b60] font-medium mt-1">
+                {isFa ? s.labelFa : s.labelEn}
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+
+      <!-- Right Column: Highlight Card with Vintage Aesthetic -->
+      <div class="lg:col-span-5">
+        <div class="bg-[#1d4d3e] text-white rounded-2xl p-8 sm:p-10 shadow-xl relative overflow-hidden">
+          
+          <div class="text-xs font-mono text-[#f4d5cc] uppercase tracking-widest mb-4">
+            {isFa ? 'فلسفه مهندسی نرم‌افزار' : 'ENGINEERING PHILOSOPHY'}
+          </div>
+
+          <h3 class="font-serif-vintage text-2xl font-bold text-white mb-6 leading-snug">
+            {isFa
+              ? '«ساختن ابزارهایی که کار می‌کنند؛ با بالاترین سرعت، کمترین خطا و طراحی چشم‌نواز.»'
+              : '"Building systems that perform reliably under pressure, zero downtime, and intuitive clarity."'}
+          </h3>
+
+          <ul class="space-y-4 text-sm text-emerald-100 font-light border-t border-[#276652] pt-6">
+            <li class="flex items-start gap-3">
+              <span class="text-[#e07253] font-bold text-lg leading-none">✓</span>
+              <span>{isFa ? 'بیش از ۱۰ سال تجربه کار با زبان‌های Python، C# .NET و اکوسیستم مدرن وب' : '10+ years in Python, C# .NET Core, and modern web architectures'}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#e07253] font-bold text-lg leading-none">✓</span>
+              <span>{isFa ? 'تز پایان‌نامه کارشناسی ارشد در حوزه RAG و جستجوی معنایی در دانشگاه شهید بهشتی' : 'M.Sc. research on RAG pipelines & semantic vector retrieval at Shahid Beheshti Univ.'}</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-[#e07253] font-bold text-lg leading-none">✓</span>
+              <span>{isFa ? 'تجربه راهبری فنی در استارتاپ رایامیت و پیاده‌سازی سیستم‌های پرداخت در به‌پرداخت ملت' : 'Technical leadership at Rayamate & mission-critical transaction engines at Behpardakht Mellat'}</span>
+            </li>
+          </ul>
+
+          <div class="mt-8 pt-6 border-t border-[#276652] flex items-center justify-between">
+            <span class="text-xs text-emerald-200">
+              {isFa ? 'محل سکونت:' : 'Location:'} <strong>{isFa ? profile.locationFa : profile.locationEn}</strong>
+            </span>
+            <a
+              href="#contact"
+              class="text-xs font-bold uppercase tracking-wider text-[#f4d5cc] hover:text-white underline underline-offset-4"
+            >
+              {isFa ? 'شروع گفتگو ←' : 'Get in touch →'}
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

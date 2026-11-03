@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css';
-import NeuralBackground from '../components/NeuralBackground.astro';
 import Navbar from '../components/Navbar.astro';
 import InteractiveTerminal from '../components/InteractiveTerminal.astro';
 import Footer from '../components/Footer.astro';
@@ -39,30 +38,27 @@ const dir = isFa ? 'rtl' : 'ltr';
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content="/saeed.jpg" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Fraunces (Vintage Editorial Serif), Plus Jakarta Sans, Vazirmatn -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&family=Space+Grotesk:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#05070d] text-slate-100 min-h-screen selection:bg-cyan-500/30 selection:text-cyan-200">
-    <!-- Interactive Background Canvas -->
-    <NeuralBackground />
-
-    <!-- Navigation Header -->
+  <body class="bg-[#faf8f5] text-[#192b23] min-h-screen selection:bg-[#e07253]/25 selection:text-[#1d4d3e]">
+    <!-- Top Forest Green Navigation Header -->
     <Navbar lang={lang} />
 
-    <!-- Main Content Slot -->
-    <main class="relative z-10">
+    <!-- Main Content Area -->
+    <main class="relative z-10 pt-[72px]">
       <slot />
     </main>
 
-    <!-- Footer -->
+    <!-- Forest Green Footer -->
     <Footer lang={lang} />
 
-    <!-- Interactive Holographic Terminal OS -->
+    <!-- Interactive Console (Minimalist Drawer) -->
     <InteractiveTerminal lang={lang} />
   </body>
 </html>

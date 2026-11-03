@@ -8,55 +8,45 @@ const { lang } = Astro.props;
 const isFa = lang === 'fa';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="main-nav">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-    <nav class="glass-card rounded-2xl px-4 py-3 flex items-center justify-between border border-slate-800/80 bg-slate-950/75 backdrop-blur-xl shadow-2xl">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#1d4d3e] text-white shadow-md border-b border-[#163d31]" id="main-nav">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="h-[72px] flex items-center justify-between">
       
-      <!-- Brand Logo -->
-      <a href={isFa ? '/' : '/en'} class="flex items-center gap-3 group">
-        <div class="relative w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 via-sky-500 to-indigo-600 p-[1px] shadow-lg shadow-cyan-500/20 group-hover:shadow-cyan-400/40 transition-all">
-          <div class="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-            <span class="font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-sky-300 text-base">
-              SA
-            </span>
-          </div>
-        </div>
-        <div class="flex flex-col">
-          <span class="font-bold text-sm tracking-wide text-white group-hover:text-cyan-300 transition-colors">
-            {isFa ? 'سعید علی‌اکبری' : 'Saeed Aliakbari'}
-          </span>
-          <span class="text-[10px] font-mono text-cyan-400/80 tracking-widest flex items-center gap-1">
-            <span class="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-            AI // FINTECH
-          </span>
-        </div>
+      <!-- Brand Logo (Vintage Serif style like 'Hom Sweet Hom') -->
+      <a href={isFa ? '/' : '/en'} class="flex items-center gap-2 group">
+        <span class="font-serif-vintage text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#f4d5cc] transition-colors">
+          {isFa ? 'سعید علی‌اکبری' : 'Saeed Aliakbari'}
+        </span>
       </a>
 
-      <!-- Desktop Navigation Links -->
-      <div class="hidden md:flex items-center gap-1 lg:gap-2">
-        <a href="#about" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all">
-          {isFa ? 'درباره من' : 'About'}
+      <!-- Desktop Navigation Links (Uppercase Serif/Sans like reference) -->
+      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-bold tracking-wider uppercase">
+        <a href="#home" class="py-1 text-white hover:text-[#f4d5cc] border-b-2 border-white transition-all">
+          {isFa ? 'خانه' : 'HOME'}
         </a>
-        <a href="#rag-lab" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all flex items-center gap-1">
-          <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-          {isFa ? 'آزمایشگاه RAG' : 'RAG Lab'}
+        <a href="#about" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
+          {isFa ? 'درباره من' : 'ABOUT'}
         </a>
-        <a href="#skills" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all">
-          {isFa ? 'ماتریس تخصص' : 'Skills'}
+        <a href="#rag-lab" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-[#e07253] transition-all flex items-center gap-1.5">
+          <span>{isFa ? 'آزمایشگاه هوش مصنوعی' : 'AI LAB'}</span>
+          <span class="w-2 h-2 rounded-full bg-[#e07253] animate-pulse"></span>
         </a>
-        <a href="#projects" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all">
-          {isFa ? 'پروژه‌ها' : 'Projects'}
+        <a href="#skills" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
+          {isFa ? 'تخصص‌ها' : 'SKILLS'}
         </a>
-        <a href="#experience" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all">
-          {isFa ? 'مسیر حرفه‌ای' : 'Experience'}
+        <a href="#projects" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
+          {isFa ? 'پروژه‌ها' : 'WORK'}
         </a>
-        <a href="#contact" class="px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-cyan-300 hover:bg-slate-800/50 rounded-lg transition-all">
-          {isFa ? 'ارتباط' : 'Contact'}
+        <a href="#experience" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
+          {isFa ? 'مسیر شغلی' : 'CAREER'}
         </a>
-      </div>
+        <a href="#contact" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
+          {isFa ? 'ارتباط' : 'CONTACT'}
+        </a>
+      </nav>
 
-      <!-- Action HUD Controls -->
-      <div class="flex items-center gap-2">
+      <!-- Action Controls: Audio + Terminal + Lang Switcher -->
+      <div class="flex items-center gap-3">
         <!-- Audio Synthesizer Toggle -->
         <AudioEffects lang={lang} />
 
@@ -66,43 +56,29 @@ const isFa = lang === 'fa';
           type="button"
           aria-label="Open Terminal HUD"
           title={isFa ? 'کنسول تعاملی هوشمند' : 'Interactive Cyber Console'}
-          class="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-mono border border-cyan-500/30 bg-cyan-950/30 text-cyan-300 hover:bg-cyan-500/20 hover:border-cyan-400 transition-all cursor-pointer shadow-sm shadow-cyan-500/10"
+          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-[#143a2e] text-[#f4d5cc] border border-[#276652] hover:bg-[#276652] transition-all cursor-pointer"
         >
-          <span class="text-cyan-400 font-bold">~</span>
-          <span>CLI</span>
-        </button>
-
-        <!-- Matrix Rain Toggle -->
-        <button
-          id="matrix-toggle-btn"
-          type="button"
-          aria-label="Toggle Matrix Mode"
-          title={isFa ? 'باران دیجیتال ماتریکس' : 'Matrix Rain Mode'}
-          class="p-2 rounded-full border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/40 hover:bg-emerald-950/30 transition-all cursor-pointer"
-        >
-          <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
+          <span>&gt;_ CLI</span>
         </button>
 
         <!-- Language Switcher -->
-        <div class="flex items-center p-0.5 rounded-full bg-slate-900 border border-slate-800">
+        <div class="flex items-center p-0.5 rounded-lg bg-[#143a2e] border border-[#276652]">
           <a
             href="/"
-            class={`px-2.5 py-1 rounded-full text-xs font-mono transition-all ${
+            class={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
               isFa
-                ? 'bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-bold shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#e07253] text-white shadow-sm'
+                : 'text-emerald-200 hover:text-white'
             }`}
           >
             FA
           </a>
           <a
             href="/en"
-            class={`px-2.5 py-1 rounded-full text-xs font-mono transition-all ${
+            class={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
               !isFa
-                ? 'bg-gradient-to-r from-cyan-500 to-sky-600 text-white font-bold shadow-sm'
-                : 'text-slate-400 hover:text-white'
+                ? 'bg-[#e07253] text-white shadow-sm'
+                : 'text-emerald-200 hover:text-white'
             }`}
           >
             EN
@@ -114,38 +90,40 @@ const isFa = lang === 'fa';
           id="mobile-menu-btn"
           type="button"
           aria-label="Toggle Menu"
-          class="md:hidden p-2 text-slate-300 hover:text-white hover:bg-slate-800/60 rounded-xl"
+          class="md:hidden p-2 text-white hover:bg-[#143a2e] rounded-lg"
         >
-          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
       </div>
-    </nav>
+
+    </div>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden mt-2 p-4 glass-card rounded-2xl border border-slate-800 bg-slate-950/95 backdrop-blur-2xl">
-      <div class="flex flex-col gap-2">
-        <a href="#about" class="px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/60 rounded-xl mobile-link">
-          {isFa ? 'درباره من' : 'About'}
-        </a>
-        <a href="#rag-lab" class="px-3 py-2 text-sm text-cyan-300 hover:bg-cyan-950/40 rounded-xl mobile-link flex items-center justify-between">
-          <span>{isFa ? 'آزمایشگاه هوش مصنوعی RAG' : 'RAG AI Laboratory'}</span>
-          <span class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/20 border border-cyan-500/30">LIVE</span>
-        </a>
-        <a href="#skills" class="px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/60 rounded-xl mobile-link">
-          {isFa ? 'ماتریس مهارت‌ها' : 'Skills Matrix'}
-        </a>
-        <a href="#projects" class="px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/60 rounded-xl mobile-link">
-          {isFa ? 'پروژه‌های شاخص' : 'Featured Projects'}
-        </a>
-        <a href="#experience" class="px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/60 rounded-xl mobile-link">
-          {isFa ? 'سوابق و مسیر حرفه‌ای' : 'Experience & Career'}
-        </a>
-        <a href="#contact" class="px-3 py-2 text-sm text-slate-200 hover:bg-slate-800/60 rounded-xl mobile-link">
-          {isFa ? 'ارتباط مستقیم' : 'Contact'}
-        </a>
-      </div>
+    <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-[#276652] flex flex-col gap-2">
+      <a href="#home" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'خانه' : 'HOME'}
+      </a>
+      <a href="#about" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'درباره من' : 'ABOUT'}
+      </a>
+      <a href="#rag-lab" class="px-3 py-2 text-sm text-[#f4d5cc] hover:bg-[#143a2e] rounded-lg mobile-link flex items-center justify-between">
+        <span>{isFa ? 'آزمایشگاه RAG' : 'AI LAB'}</span>
+        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#e07253] text-white">LIVE</span>
+      </a>
+      <a href="#skills" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'تخصص‌ها' : 'SKILLS'}
+      </a>
+      <a href="#projects" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'پروژه‌ها' : 'WORK'}
+      </a>
+      <a href="#experience" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'مسیر حرفه‌ای' : 'CAREER'}
+      </a>
+      <a href="#contact" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+        {isFa ? 'ارتباط' : 'CONTACT'}
+      </a>
     </div>
   </div>
 </header>
@@ -158,20 +136,12 @@ const isFa = lang === 'fa';
     mobileMenu?.classList.toggle('hidden');
   });
 
-  // Close mobile menu on link click
   document.querySelectorAll('.mobile-link').forEach((link) => {
     link.addEventListener('click', () => {
       mobileMenu?.classList.add('hidden');
     });
   });
 
-  // Matrix rain trigger
-  const matrixBtn = document.getElementById('matrix-toggle-btn');
-  matrixBtn?.addEventListener('click', () => {
-    window.dispatchEvent(new CustomEvent('toggle-matrix'));
-  });
-
-  // Terminal trigger
   const terminalNavBtn = document.getElementById('terminal-nav-btn');
   terminalNavBtn?.addEventListener('click', () => {
     window.dispatchEvent(new CustomEvent('toggle-terminal'));

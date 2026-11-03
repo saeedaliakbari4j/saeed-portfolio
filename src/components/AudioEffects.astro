@@ -1,5 +1,5 @@
 ---
-// Web Audio API Synthesizer for Cyber Haptic Feedback
+// Web Audio API Synthesizer for Retro Editorial Feedback
 interface Props {
   lang: 'fa' | 'en';
 }
@@ -9,29 +9,27 @@ const { lang } = Astro.props;
   id="audio-toggle-btn"
   type="button"
   aria-label={lang === 'fa' ? 'تغییر وضعیت صدا' : 'Toggle Audio FX'}
-  title={lang === 'fa' ? 'افکت‌های صوتی سایبری' : 'Cyber Audio FX'}
-  class="relative flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-mono border border-slate-700/60 bg-slate-900/60 backdrop-blur hover:border-cyan-400/50 hover:text-cyan-300 transition-all cursor-pointer group"
+  title={lang === 'fa' ? 'افکت صوتی' : 'Sound FX'}
+  class="relative flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs font-mono border border-[#276652] bg-[#143a2e] hover:border-[#e07253] hover:text-[#f4d5cc] text-emerald-200 transition-all cursor-pointer group"
 >
-  <span class="flex items-center gap-0.5 h-3.5" id="audio-bars">
-    <span class="w-0.5 h-1.5 bg-slate-500 rounded-full group-hover:bg-cyan-400 transition-all bar-1"></span>
-    <span class="w-0.5 h-3 bg-slate-500 rounded-full group-hover:bg-cyan-400 transition-all bar-2"></span>
-    <span class="w-0.5 h-2 bg-slate-500 rounded-full group-hover:bg-cyan-400 transition-all bar-3"></span>
-    <span class="w-0.5 h-1 bg-slate-500 rounded-full group-hover:bg-cyan-400 transition-all bar-4"></span>
+  <span class="flex items-center gap-0.5 h-3" id="audio-bars">
+    <span class="w-0.5 h-1.5 bg-emerald-400 rounded-full bar-1"></span>
+    <span class="w-0.5 h-3 bg-emerald-400 rounded-full bar-2"></span>
+    <span class="w-0.5 h-2 bg-emerald-400 rounded-full bar-3"></span>
   </span>
-  <span id="audio-status-text" class="text-[11px] text-slate-400 group-hover:text-cyan-300">
-    {lang === 'fa' ? 'صدا: خاموش' : 'FX: OFF'}
+  <span id="audio-status-text" class="text-[11px] font-bold">
+    {lang === 'fa' ? 'صدا' : 'SFX'}
   </span>
 </button>
 
 <style>
-  .audio-active .bar-1 { animation: pulse-bar 0.8s ease-in-out infinite alternate; background-color: #00f5d4 !important; }
-  .audio-active .bar-2 { animation: pulse-bar 1.2s ease-in-out infinite alternate 0.2s; background-color: #00f5d4 !important; }
-  .audio-active .bar-3 { animation: pulse-bar 0.6s ease-in-out infinite alternate 0.4s; background-color: #00f5d4 !important; }
-  .audio-active .bar-4 { animation: pulse-bar 1.0s ease-in-out infinite alternate 0.1s; background-color: #00f5d4 !important; }
+  .audio-active .bar-1 { animation: pulse-bar 0.8s ease-in-out infinite alternate; background-color: #e07253 !important; }
+  .audio-active .bar-2 { animation: pulse-bar 1.2s ease-in-out infinite alternate 0.2s; background-color: #e07253 !important; }
+  .audio-active .bar-3 { animation: pulse-bar 0.6s ease-in-out infinite alternate 0.4s; background-color: #e07253 !important; }
 
   @keyframes pulse-bar {
     0% { height: 3px; }
-    100% { height: 14px; }
+    100% { height: 12px; }
   }
 </style>
 
@@ -40,7 +38,6 @@ const { lang } = Astro.props;
   let soundEnabled = false;
 
   const btn = document.getElementById('audio-toggle-btn');
-  const bars = document.getElementById('audio-bars');
   const statusText = document.getElementById('audio-status-text');
   const isFa = document.documentElement.lang === 'fa';
 
@@ -56,7 +53,7 @@ const { lang } = Astro.props;
     }
   }
 
-  function playCyberTone(freq: number, type: OscillatorType = 'sine', duration: number = 0.08, gainVal: number = 0.05) {
+  function playTone(freq: number, type: OscillatorType = 'sine', duration: number = 0.08, gainVal: number = 0.04) {
     if (!soundEnabled || !audioCtx) return;
     try {
       const osc = audioCtx.createOscillator();
@@ -64,7 +61,7 @@ const { lang } = Astro.props;
 
       osc.type = type;
       osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-      osc.frequency.exponentialRampToValueAtTime(freq * 0.5, audioCtx.currentTime + duration);
+      osc.frequency.exponentialRampToValueAtTime(freq * 0.7, audioCtx.currentTime + duration);
 
       gain.gain.setValueAtTime(gainVal, audioCtx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
@@ -74,27 +71,25 @@ const { lang } = Astro.props;
 
       osc.start();
       osc.stop(audioCtx.currentTime + duration);
-    } catch (e) {
-      // Audio fallback
-    }
+    } catch (e) {}
   }
 
   function playBlip() {
-    playCyberTone(880, 'sine', 0.05, 0.03);
+    playTone(520, 'sine', 0.04, 0.02);
   }
 
   function playChime() {
     if (!soundEnabled || !audioCtx) return;
     try {
-      const notes = [523.25, 659.25, 783.99, 1046.50];
+      const notes = [440, 554.37, 659.25];
       notes.forEach((freq, idx) => {
-        setTimeout(() => playCyberTone(freq, 'triangle', 0.12, 0.04), idx * 45);
+        setTimeout(() => playTone(freq, 'triangle', 0.1, 0.03), idx * 50);
       });
     } catch(e) {}
   }
 
   function playKeyClick() {
-    playCyberTone(1200 + Math.random() * 400, 'square', 0.02, 0.015);
+    playTone(700 + Math.random() * 200, 'square', 0.02, 0.01);
   }
 
   btn?.addEventListener('click', () => {
@@ -102,25 +97,22 @@ const { lang } = Astro.props;
     soundEnabled = !soundEnabled;
     if (soundEnabled) {
       btn.classList.add('audio-active');
-      if (statusText) statusText.textContent = isFa ? 'صدا: فعال' : 'FX: ON';
-      if (statusText) statusText.classList.add('text-cyan-400');
+      if (statusText) statusText.textContent = isFa ? 'صدا: فعال' : 'SFX: ON';
       playChime();
     } else {
       btn.classList.remove('audio-active');
-      if (statusText) statusText.textContent = isFa ? 'صدا: خاموش' : 'FX: OFF';
-      if (statusText) statusText.classList.remove('text-cyan-400');
+      if (statusText) statusText.textContent = isFa ? 'صدا' : 'SFX';
     }
   });
 
-  // Attach sound to interactive buttons and cards
+  // Attach sound to interactive buttons
   document.addEventListener('mouseover', (e) => {
-    const target = (e.target as HTMLElement).closest('button, a, .glass-card');
+    const target = (e.target as HTMLElement).closest('button, a, .editorial-card');
     if (target && soundEnabled) {
       playBlip();
     }
   });
 
-  // Expose global play functions
   (window as any).cyberAudio = {
     playBlip,
     playChime,

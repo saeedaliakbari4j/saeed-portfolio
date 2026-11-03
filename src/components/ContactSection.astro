@@ -9,45 +9,45 @@ const isFa = lang === 'fa';
 const { profile } = portfolioData;
 ---
 
-<section id="contact" class="relative py-24 z-10">
+<section id="contact" class="py-24 bg-white border-b border-[#e5efe9]">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border border-cyan-500/40 bg-cyan-950/30 text-cyan-300 mb-4">
-        <span>05 // DIRECT TRANSMISSION</span>
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e8f5f1] border border-[#cbe4db] text-[#1d4d3e] text-xs font-bold tracking-wider uppercase mb-3">
+        <span>LET'S WORK TOGETHER</span>
       </div>
-      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-        {isFa ? 'برقراری ارتباط و آغاز همکاری' : 'Initiate Transmission & Collaboration'}
+      <h2 class="font-serif-vintage text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d4d3e] tracking-tight">
+        {isFa ? 'برقراری ارتباط و آغاز همکاری' : 'Start a Conversation'}
       </h2>
-      <p class="mt-4 text-base sm:text-lg text-slate-400">
+      <p class="mt-4 text-base sm:text-lg text-[#526b60]">
         {isFa
           ? 'آیا برای پیاده‌سازی سیستم‌های RAG، پلتفرم‌های مقیاس‌پذیر بانکی یا مشاوره معماری نرم‌افزار به راهبری تخصصی نیاز دارید؟ بیایید گفتگو را آغاز کنیم.'
           : 'Ready to architect next-gen RAG pipelines, mission-critical FinTech infrastructure, or scale your software team? Let’s connect.'}
       </p>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
       
       <!-- Left Column: Direct Info Cards -->
-      <div class="lg:col-span-5 flex flex-col gap-4">
+      <div class="lg:col-span-5 flex flex-col gap-5">
         
         <!-- Email Copy Card -->
-        <div class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-cyan-500/40 relative group">
+        <div class="editorial-card rounded-3xl p-6 sm:p-7 relative group">
           <div class="flex items-center justify-between mb-4">
-            <span class="text-xs font-mono text-cyan-400">EMAIL_PROTOCOL</span>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#e07253]">DIRECT EMAIL</span>
             <button
               id="copy-email-btn"
               type="button"
-              class="px-3 py-1 rounded-lg text-xs font-mono bg-slate-900 border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 transition-all cursor-pointer"
+              class="px-3.5 py-1.5 rounded-lg text-xs font-bold uppercase bg-[#e8f5f1] hover:bg-[#1d4d3e] hover:text-white text-[#1d4d3e] transition-all cursor-pointer"
             >
               <span id="copy-text">{isFa ? 'کپی آدرس' : 'Copy Email'}</span>
             </button>
           </div>
-          <div class="text-lg font-bold font-mono text-white break-all mb-1 select-all" id="target-email">
+          <div class="text-lg sm:text-xl font-bold font-mono text-[#1d4d3e] break-all mb-2 select-all" id="target-email">
             {profile.email}
           </div>
-          <p class="text-xs text-slate-400 font-light">
+          <p class="text-xs text-[#526b60] font-light">
             {isFa ? 'پاسخگویی سریع برای درخواست‌های مشاوره و همکاری فنی' : 'Direct inbox monitored for engineering & consulting inquiries.'}
           </p>
         </div>
@@ -57,18 +57,16 @@ const { profile } = portfolioData;
           href={profile.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-sky-500/50 block group transition-all"
+          class="editorial-card rounded-3xl p-6 sm:p-7 block group transition-all"
         >
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-mono text-sky-400">LINKEDIN_CONNECT</span>
-            <svg class="w-4 h-4 rtl:rotate-180 text-slate-500 group-hover:text-sky-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#e07253]">LINKEDIN NETWORK</span>
+            <span class="text-[#1d4d3e] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
           </div>
-          <div class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">
+          <div class="font-serif-vintage text-xl font-bold text-[#1d4d3e] group-hover:text-[#e07253] transition-colors">
             linkedin.com/in/saeed-aliakbari
           </div>
-          <p class="text-xs text-slate-400 font-light mt-1">
+          <p class="text-xs text-[#526b60] font-light mt-1">
             {isFa ? 'شبکه حرفه‌ای با بیش از ۳,۰۰۰ همراه و متخصص صنعت فناوری' : 'Professional network of 3,000+ technology leaders and engineers.'}
           </p>
         </a>
@@ -78,112 +76,107 @@ const { profile } = portfolioData;
           href={profile.github}
           target="_blank"
           rel="noopener noreferrer"
-          class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-cyan-500/50 block group transition-all"
+          class="editorial-card rounded-3xl p-6 sm:p-7 block group transition-all"
         >
           <div class="flex items-center justify-between mb-2">
-            <span class="text-xs font-mono text-emerald-400">GITHUB_REPOSITORIES</span>
-            <svg class="w-4 h-4 rtl:rotate-180 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span class="text-xs font-bold uppercase tracking-wider text-[#e07253]">GITHUB REPOSITORIES</span>
+            <span class="text-[#1d4d3e] group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-transform">→</span>
           </div>
-          <div class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+          <div class="font-serif-vintage text-xl font-bold text-[#1d4d3e] group-hover:text-[#e07253] transition-colors">
             github.com/saeedaliakbari4j
           </div>
-          <p class="text-xs text-slate-400 font-light mt-1">
+          <p class="text-xs text-[#526b60] font-light mt-1">
             {isFa ? 'کدهای منبع، پایان‌نامه RAG، ابزارهای بانکی و پروژه‌های متن‌باز' : 'Open-source thesis RAG models, banking algorithms, and utilities.'}
           </p>
         </a>
 
       </div>
 
-      <!-- Right Column: Interactive Transmission Terminal -->
+      <!-- Right Column: Clean Editorial Form -->
       <div class="lg:col-span-7">
-        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 relative">
+        <div class="bg-[#faf8f5] rounded-3xl p-6 sm:p-10 border-2 border-[#1d4d3e]/15 shadow-md relative">
           
-          <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-800/80 text-xs font-mono text-cyan-400">
-            <div class="flex items-center gap-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-              <span>SECURE_DISPATCH_FORM</span>
-            </div>
-            <span>TLS_ENCRYPTION: ACTIVE</span>
+          <div class="pb-4 mb-6 border-b border-[#e2ece7]">
+            <h3 class="font-serif-vintage text-2xl font-bold text-[#1d4d3e]">
+              {isFa ? 'ارسال پیام مستقیم به سعید' : 'Send a Direct Message'}
+            </h3>
+            <p class="text-xs text-[#526b60] mt-1">
+              {isFa ? 'پیام شما مستقیماً دریافت و در سریع‌ترین زمان بررسی می‌شود.' : 'Fill out the form below and I will get back to you shortly.'}
+            </p>
           </div>
 
           <form id="contact-form" class="space-y-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label class="block text-xs font-mono text-slate-400 mb-1.5">
-                  {isFa ? 'نام و نام‌خانوادگی / سازمان' : 'Name / Organization'}
+                <label class="block text-xs font-bold text-[#1d4d3e] uppercase tracking-wider mb-1.5">
+                  {isFa ? 'نام و نام‌خانوادگی / شرکت' : 'Your Name / Org'}
                 </label>
                 <input
                   type="text"
                   required
                   id="form-name"
-                  placeholder={isFa ? 'مثال: علی رضایی' : 'e.g. John Doe'}
-                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+                  placeholder={isFa ? 'مثال: علیرضا محمدی' : 'e.g. Sarah Jenkins'}
+                  class="w-full px-4 py-3 rounded-xl bg-white border border-[#cbe4db] text-sm text-[#192b23] focus:border-[#1d4d3e] focus:ring-1 focus:ring-[#1d4d3e] outline-none transition-all"
                 />
               </div>
 
               <div>
-                <label class="block text-xs font-mono text-slate-400 mb-1.5">
-                  {isFa ? 'آدرس ایمیل یا تلگرام' : 'Email or Telegram'}
+                <label class="block text-xs font-bold text-[#1d4d3e] uppercase tracking-wider mb-1.5">
+                  {isFa ? 'آدرس ایمیل' : 'Email Address'}
                 </label>
                 <input
-                  type="text"
+                  type="email"
                   required
                   id="form-contact"
-                  placeholder={isFa ? 'name@example.com' : 'name@example.com'}
-                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+                  placeholder="name@example.com"
+                  class="w-full px-4 py-3 rounded-xl bg-white border border-[#cbe4db] text-sm text-[#192b23] focus:border-[#1d4d3e] focus:ring-1 focus:ring-[#1d4d3e] outline-none transition-all"
                 />
               </div>
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-slate-400 mb-1.5">
-                {isFa ? 'موضوع پروژه یا پیام' : 'Subject / Project Domain'}
+              <label class="block text-xs font-bold text-[#1d4d3e] uppercase tracking-wider mb-1.5">
+                {isFa ? 'موضوع پیام' : 'Subject'}
               </label>
               <input
                 type="text"
                 required
                 id="form-subject"
-                placeholder={isFa ? 'همکاری در پروژه RAG / هوش مصنوعی' : 'RAG Pipeline Architecture / Consulting'}
-                class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+                placeholder={isFa ? 'همکاری در پروژه RAG / مشاوره فنی' : 'RAG Pipeline Project / Consulting'}
+                class="w-full px-4 py-3 rounded-xl bg-white border border-[#cbe4db] text-sm text-[#192b23] focus:border-[#1d4d3e] focus:ring-1 focus:ring-[#1d4d3e] outline-none transition-all"
               />
             </div>
 
             <div>
-              <label class="block text-xs font-mono text-slate-400 mb-1.5">
-                {isFa ? 'متن پیام' : 'Message Details'}
+              <label class="block text-xs font-bold text-[#1d4d3e] uppercase tracking-wider mb-1.5">
+                {isFa ? 'متن پیام' : 'Message'}
               </label>
               <textarea
                 rows="4"
                 required
                 id="form-message"
-                placeholder={isFa ? 'توضیحات کوتاه درباره نیازمندی یا پروژه خود بنویسید...' : 'Briefly describe your project or inquiry...'}
-                class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all resize-none"
+                placeholder={isFa ? 'توضیحات کوتاه درباره نیازمندی یا پروژه خود بنویسید...' : 'Tell me a bit about what you need...'}
+                class="w-full px-4 py-3 rounded-xl bg-white border border-[#cbe4db] text-sm text-[#192b23] focus:border-[#1d4d3e] focus:ring-1 focus:ring-[#1d4d3e] outline-none transition-all resize-none"
               ></textarea>
             </div>
 
             <button
               type="submit"
               id="form-submit-btn"
-              class="w-full py-4 rounded-xl font-bold font-mono text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-300 hover:from-cyan-300 hover:to-teal-200 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 transition-all cursor-pointer flex items-center justify-center gap-2"
+              class="w-full py-4 rounded-xl font-bold uppercase tracking-wider text-sm text-white bg-[#e07253] hover:bg-[#cb5e40] shadow-md hover:shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2"
             >
-              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
-              </svg>
-              <span>{isFa ? 'ارسال سیگنال مستقیم به سعید' : 'Transmit Encrypted Signal'}</span>
+              <span>{isFa ? 'ارسال پیام' : 'SEND MESSAGE'}</span>
+              <span>→</span>
             </button>
           </form>
 
           <!-- Success Alert Card -->
-          <div id="form-success-banner" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-sm flex items-center gap-3">
-            <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-            </svg>
+          <div id="form-success-banner" class="hidden mt-4 p-4 rounded-xl bg-[#e8f5f1] border border-[#a2cfc0] text-[#1d4d3e] text-sm flex items-center gap-3">
+            <span class="text-xl">✓</span>
             <div>
-              <div class="font-bold">{isFa ? 'پیام شما با موفقیت ثبت شد!' : 'Signal Successfully Transmitted!'}</div>
-              <div class="text-xs text-emerald-400/80 mt-0.5">
-                {isFa ? 'سعید در سریع‌ترین زمان ممکن پاسخ شما را ارسال خواهد کرد.' : 'Saeed will follow up with you at the provided contact details.'}
+              <div class="font-bold">{isFa ? 'پیام شما با موفقیت ثبت شد!' : 'Message Successfully Sent!'}</div>
+              <div class="text-xs text-[#526b60] mt-0.5">
+                {isFa ? 'سعید در سریع‌ترین زمان ممکن پاسخ شما را ارسال خواهد کرد.' : 'Saeed will follow up with you at the provided email.'}
               </div>
             </div>
           </div>

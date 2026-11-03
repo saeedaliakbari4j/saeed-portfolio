@@ -8,33 +8,30 @@ const { lang } = Astro.props;
 const isFa = lang === 'fa';
 ---
 
-<!-- Floating Floating Terminal Modal / Overlay -->
+<!-- Floating Terminal Modal / Overlay -->
 <div
   id="cyber-terminal-modal"
-  class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-xl hidden flex items-center justify-center p-4 sm:p-6"
+  class="fixed inset-0 z-50 bg-[#143a2e]/60 backdrop-blur-sm hidden flex items-center justify-center p-4 sm:p-6"
 >
   <div
-    class="w-full max-w-3xl rounded-2xl bg-[#070b14] border border-cyan-500/40 shadow-2xl shadow-cyan-950/80 overflow-hidden flex flex-col h-[520px] max-h-[85vh] relative"
+    class="w-full max-w-3xl rounded-2xl bg-[#14261f] border-2 border-[#276652] shadow-2xl overflow-hidden flex flex-col h-[520px] max-h-[85vh] relative"
     id="terminal-window"
   >
-    <!-- Laser scanline effect -->
-    <div class="scanline"></div>
-
-    <!-- Top Window Titlebar -->
-    <div class="px-4 py-3 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between select-none">
+    <!-- Top Window Titlebar (Forest Green) -->
+    <div class="px-5 py-3.5 bg-[#1d4d3e] border-b border-[#276652] flex items-center justify-between select-none">
       <div class="flex items-center gap-2">
-        <button id="terminal-close-btn" class="w-3.5 h-3.5 rounded-full bg-red-500/80 hover:bg-red-400 cursor-pointer" title="Close"></button>
-        <button id="terminal-min-btn" class="w-3.5 h-3.5 rounded-full bg-yellow-500/80 hover:bg-yellow-400 cursor-pointer" title="Minimize"></button>
-        <button id="terminal-max-btn" class="w-3.5 h-3.5 rounded-full bg-emerald-500/80 hover:bg-emerald-400 cursor-pointer" title="Maximize"></button>
-        <span class="ml-2 font-mono text-xs text-cyan-400 font-semibold tracking-wider">
-          SAEED_OS://TERMINAL_V5.0 [AI_INTELLIGENCE_AGENT]
+        <button id="terminal-close-btn" class="w-3.5 h-3.5 rounded-full bg-red-400 hover:bg-red-300 cursor-pointer" title="Close"></button>
+        <button id="terminal-min-btn" class="w-3.5 h-3.5 rounded-full bg-yellow-400 hover:bg-yellow-300 cursor-pointer" title="Minimize"></button>
+        <button id="terminal-max-btn" class="w-3.5 h-3.5 rounded-full bg-emerald-400 hover:bg-emerald-300 cursor-pointer" title="Maximize"></button>
+        <span class="ml-3 font-mono text-xs text-white font-bold tracking-wider">
+          SAEED_CONSOLE://INTELLIGENCE_KERNEL [v5.2]
         </span>
       </div>
 
-      <div class="flex items-center gap-3 text-[11px] font-mono text-slate-400">
-        <span class="hidden sm:inline">TYPE 'help' FOR CMDS</span>
-        <span class="px-2 py-0.5 rounded bg-cyan-950/80 border border-cyan-500/30 text-cyan-300">
-          ESC to exit
+      <div class="flex items-center gap-3 text-xs font-mono text-emerald-200">
+        <span class="hidden sm:inline">TYPE 'help' FOR COMMANDS</span>
+        <span class="px-2 py-0.5 rounded bg-[#143a2e] border border-[#276652] text-[#f4d5cc]">
+          ESC
         </span>
       </div>
     </div>
@@ -42,35 +39,35 @@ const isFa = lang === 'fa';
     <!-- Terminal Output Log Area -->
     <div
       id="terminal-body"
-      class="flex-1 p-4 font-mono text-xs sm:text-sm text-slate-200 overflow-y-auto space-y-2 select-text"
+      class="flex-1 p-5 font-mono text-xs sm:text-sm text-emerald-100 overflow-y-auto space-y-2 select-text"
       dir="ltr"
     >
-      <div class="text-cyan-400">
+      <div class="text-[#f4d5cc] font-bold">
         ========================================================================<br/>
-        &nbsp;&nbsp;SAEED ALIAKBARI // AI ARCHITECT & FINTECH LEAD KERNEL<br/>
-        &nbsp;&nbsp;RAG Pipelines | High-Availability PSP Systems | Modern Web<br/>
+        &nbsp;&nbsp;SAEED ALIAKBARI // AI ARCHITECT &amp; SOFTWARE ENGINEER<br/>
+        &nbsp;&nbsp;RAG Optimization | Mission-Critical Banking | Modern Web<br/>
         ========================================================================
       </div>
-      <div class="text-slate-400">
-        System initialized. Neural memory loaded from LinkedIn & GitHub repositories.<br/>
-        Type <span class="text-emerald-400 font-bold">help</span> to view available system commands or ask anything.
+      <div class="text-emerald-300">
+        System initialized. Knowledge store connected.<br/>
+        Type <span class="text-[#e07253] font-bold">help</span> to view commands or ask questions.
       </div>
     </div>
 
     <!-- Terminal Prompt Input Line -->
-    <div class="p-3 bg-slate-900/80 border-t border-slate-800 flex items-center gap-2" dir="ltr">
-      <span class="font-mono text-emerald-400 text-sm font-bold">saeed@neural:~$</span>
+    <div class="p-3.5 bg-[#172c24] border-t border-[#276652] flex items-center gap-2" dir="ltr">
+      <span class="font-mono text-[#e07253] text-sm font-bold">saeed:~$</span>
       <input
         id="terminal-input"
         type="text"
         autocomplete="off"
         spellcheck="false"
-        class="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-cyan-300 placeholder-slate-600"
-        placeholder="Type a command (help, skills, projects, rag, matrix, sudo hire)..."
+        class="flex-1 bg-transparent border-none outline-none font-mono text-xs sm:text-sm text-white placeholder-emerald-600"
+        placeholder="Type a command (help, about, skills, projects, rag, contact)..."
       />
       <button
         id="terminal-submit-btn"
-        class="px-3 py-1 rounded bg-cyan-500/20 border border-cyan-500/40 text-cyan-300 font-mono text-xs hover:bg-cyan-500/30 cursor-pointer"
+        class="px-4 py-1.5 rounded bg-[#e07253] text-white font-mono font-bold text-xs hover:bg-[#cb5e40] cursor-pointer"
       >
         SEND
       </button>
@@ -79,19 +76,16 @@ const isFa = lang === 'fa';
   </div>
 </div>
 
-<!-- Floating HUD Button at the Bottom Right -->
+<!-- Floating Button at Bottom Right -->
 <div class="fixed bottom-6 end-6 z-40">
   <button
     id="terminal-floating-btn"
     type="button"
-    aria-label="Open Saeed OS Terminal"
-    class="flex items-center gap-2.5 px-4 py-3 rounded-full bg-slate-950/90 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold shadow-2xl shadow-cyan-500/25 hover:border-cyan-400 hover:scale-105 hover:bg-slate-900 transition-all cursor-pointer backdrop-blur-xl group"
+    aria-label="Open Terminal"
+    class="flex items-center gap-2 px-4 py-3 rounded-full bg-[#1d4d3e] hover:bg-[#143a2e] text-white border-2 border-[#276652] text-xs font-bold shadow-xl transition-all cursor-pointer group"
   >
-    <span class="relative flex h-2.5 w-2.5">
-      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-400"></span>
-    </span>
-    <span>{isFa ? 'کنسول سایبری [~]' : 'Saeed OS [~]'}</span>
+    <span class="w-2.5 h-2.5 rounded-full bg-[#e07253] animate-pulse"></span>
+    <span>{isFa ? 'کنسول تعاملی [~]' : 'Console [~]'}</span>
   </button>
 </div>
 
@@ -123,7 +117,6 @@ const isFa = lang === 'fa';
     }
   });
 
-  // Shortcut key '~' or Escape
   window.addEventListener('keydown', (e) => {
     if (e.key === '`' || e.key === '~') {
       e.preventDefault();
@@ -138,7 +131,6 @@ const isFa = lang === 'fa';
     }
   });
 
-  // Close when clicking outside window
   modal?.addEventListener('click', (e) => {
     if (e.target === modal) {
       closeTerminal();
@@ -149,10 +141,10 @@ const isFa = lang === 'fa';
     if (!termBody) return;
     const div = document.createElement('div');
     if (isCommand) {
-      div.className = 'text-emerald-400 font-bold';
-      div.textContent = `saeed@neural:~$ ${content}`;
+      div.className = 'text-[#e07253] font-bold';
+      div.textContent = `saeed:~$ ${content}`;
     } else {
-      div.className = 'text-slate-300 leading-relaxed';
+      div.className = 'text-emerald-100 leading-relaxed';
       div.innerHTML = content;
     }
     termBody.appendChild(div);
@@ -173,74 +165,66 @@ const isFa = lang === 'fa';
     switch (lower) {
       case 'help':
         appendLine(`
-          <span class="text-cyan-400 font-bold">AVAILABLE COMMANDS:</span><br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Show available commands<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">about</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Display Saeed Aliakbari's background & bio<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;- Inspect technical mastery & domain percentages<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">projects</span>&nbsp;&nbsp;- List featured GitHub & enterprise repositories<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">rag</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Run instant live RAG vector pipeline test<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">matrix</span>&nbsp;&nbsp;&nbsp;&nbsp;- Toggle matrix digital rain mode<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">contact</span>&nbsp;&nbsp;&nbsp;- Show direct contact details (Email, LinkedIn, GitHub)<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">sudo hire</span>&nbsp;- Launch special partnership protocol<br/>
-          &nbsp;&nbsp;<span class="text-emerald-400">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear terminal screen<br/>
+          <span class="text-[#f4d5cc] font-bold">AVAILABLE COMMANDS:</span><br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Show commands list<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">about</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Saeed's background &amp; history<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;- Engineering mastery &amp; tech domains<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">projects</span>&nbsp;&nbsp;- Featured GitHub repositories<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">rag</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Run simulated RAG vector lookup<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">contact</span>&nbsp;&nbsp;&nbsp;- Direct communication channels<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">sudo hire</span>&nbsp;- Collaboration protocol<br/>
+          &nbsp;&nbsp;<span class="text-[#e07253]">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Clear screen<br/>
         `);
         break;
 
       case 'about':
         appendLine(`
-          <span class="text-cyan-300 font-bold">SAEED ALIAKBARI:</span><br/>
-          - Lead AI Architect & Senior Software Engineer with 10+ years of experience.<br/>
-          - Co-Founder & Tech Lead at Rayamate.<br/>
-          - Senior AI & Enterprise BPM Engineer at Behpardakht Mellat (leading payment switch).<br/>
-          - Alumnus of Shahid Beheshti University (M.Sc. research in RAG & Dense Vector Retrieval).<br/>
+          <span class="text-[#f4d5cc] font-bold">SAEED ALIAKBARI:</span><br/>
+          - Lead AI Architect &amp; Software Engineer with 10+ years experience.<br/>
+          - Co-Founder &amp; Tech Lead at Rayamate.<br/>
+          - Senior AI &amp; BPM Engineer at Behpardakht Mellat.<br/>
+          - Alumnus of Shahid Beheshti University (M.Sc. research on RAG).<br/>
           - Location: Tehran, Iran | Open to global high-impact collaborations.
         `);
         break;
 
       case 'skills':
         appendLine(`
-          <span class="text-cyan-400 font-bold">[ENGINEERING STACK MATRIX]</span><br/>
-          &bull; AI & RAG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAG (98%), LangChain (92%), Vector DB (94%), PyTorch (95%)<br/>
-          &bull; Backend:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FastAPI & Python (96%), C# .NET Core (94%), BPMN (92%)<br/>
-          &bull; FinTech:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment Gateways (98%), Iranian Sheba/IBAN (96%), Anti-Fraud (90%)<br/>
-          &bull; Frontend:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Astro (96%), TypeScript (95%), Tailwind CSS (94%), React (90%)<br/>
+          <span class="text-[#f4d5cc] font-bold">[ENGINEERING STACK]</span><br/>
+          &bull; AI &amp; RAG:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RAG (98%), LangChain (92%), Vector DB (94%), PyTorch (95%)<br/>
+          &bull; Backend:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Python / FastAPI (96%), C# .NET Core (94%), BPMN (92%)<br/>
+          &bull; FinTech:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payment Gateways (98%), Iranian Sheba/IBAN (96%)<br/>
+          &bull; Frontend:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Astro (96%), TypeScript (95%), Tailwind CSS (94%)<br/>
         `);
         break;
 
       case 'projects':
         appendLine(`
-          <span class="text-cyan-400 font-bold">[FEATURED REPOSITORIES]</span><br/>
-          1. <span class="text-emerald-400">thesis-rag</span>: Advanced semantic chunking & vector search for LLM grounding.<br/>
-          2. <span class="text-emerald-400">agah-platform</span>: Distributed enterprise telemetry & real-time analytics.<br/>
-          3. <span class="text-emerald-400">sheba-converter</span>: Iranian banking IBAN calculation & validation engine.<br/>
-          4. <span class="text-emerald-400">IAP-CafeBazar</span>: Cryptographic in-app payment validation library.<br/>
-          5. <span class="text-emerald-400">class-bot</span>: Autonomous interactive classroom bot.<br/>
-          Visit: <a href="https://github.com/saeedaliakbari4j" target="_blank" class="text-sky-400 underline">github.com/saeedaliakbari4j</a>
+          <span class="text-[#f4d5cc] font-bold">[FEATURED WORK]</span><br/>
+          1. thesis-rag: Advanced semantic chunking &amp; RAG retrieval.<br/>
+          2. agah-platform: Distributed analytics &amp; telemetry.<br/>
+          3. sheba-converter: Banking IBAN calculation &amp; routing engine.<br/>
+          4. IAP-CafeBazar: Cryptographic in-app billing suite.<br/>
+          Visit: <a href="https://github.com/saeedaliakbari4j" target="_blank" class="text-[#e07253] underline font-bold">github.com/saeedaliakbari4j</a>
         `);
         break;
 
       case 'rag':
         appendLine(`
-          <span class="text-yellow-400">[EXECUTING RAG PIPELINE...]</span><br/>
-          &gt; Generating embedding: [0.812, -0.429, 0.910, 0.124...]<br/>
-          &gt; Querying ChromaDB collection: 'saeed_profile_docs'<br/>
-          &gt; Cosine similarity: <span class="text-emerald-400 font-bold">0.992</span><br/>
-          &gt; Retrieved Chunk: "Saeed Aliakbari - 10+ yrs FinTech & RAG Architect"<br/>
-          &gt; LLM Response: Grounded factual response synthesized in 41ms.
+          <span class="text-[#f4d5cc]">[EXECUTING RAG PIPELINE...]</span><br/>
+          &gt; Embedding: dense 768-dim vector projected<br/>
+          &gt; Cosine similarity in Chroma: <span class="text-[#e07253] font-bold">0.992</span><br/>
+          &gt; Retrieved Chunk: "Saeed Aliakbari - 10+ yrs FinTech &amp; RAG Architect"<br/>
+          &gt; Synthesis time: 44ms (zero hallucinations)
         `);
-        break;
-
-      case 'matrix':
-        window.dispatchEvent(new CustomEvent('toggle-matrix'));
-        appendLine('<span class="text-emerald-400 font-bold">Matrix Digital Rain mode toggled!</span> Look behind the terminal.');
         break;
 
       case 'contact':
         appendLine(`
-          <span class="text-cyan-400 font-bold">[COMMUNICATION CHANNELS]</span><br/>
-          &bull; Email:&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:ai-bpmellat@outlook.com" class="text-sky-400">ai-bpmellat@outlook.com</a><br/>
-          &bull; LinkedIn:&nbsp;<a href="https://www.linkedin.com/in/saeed-aliakbari/" target="_blank" class="text-sky-400">linkedin.com/in/saeed-aliakbari/</a><br/>
-          &bull; GitHub:&nbsp;&nbsp;&nbsp;<a href="https://github.com/saeedaliakbari4j" target="_blank" class="text-sky-400">github.com/saeedaliakbari4j</a>
+          <span class="text-[#f4d5cc] font-bold">[CONTACT INFO]</span><br/>
+          &bull; Email:&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:ai-bpmellat@outlook.com" class="text-[#e07253]">ai-bpmellat@outlook.com</a><br/>
+          &bull; LinkedIn:&nbsp;<a href="https://www.linkedin.com/in/saeed-aliakbari/" target="_blank" class="text-[#e07253]">linkedin.com/in/saeed-aliakbari/</a><br/>
+          &bull; GitHub:&nbsp;&nbsp;&nbsp;<a href="https://github.com/saeedaliakbari4j" target="_blank" class="text-[#e07253]">github.com/saeedaliakbari4j</a>
         `);
         break;
 
@@ -250,9 +234,8 @@ const isFa = lang === 'fa';
           confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
         } catch(e) {}
         appendLine(`
-          <span class="text-yellow-400 font-bold">*** ACCESS GRANTED: PARTNERSHIP PROTOCOL INITIATED ***</span><br/>
-          Saeed is ready to architect your next breakthrough AI or FinTech system.<br/>
-          Direct message him on LinkedIn: <a href="https://www.linkedin.com/in/saeed-aliakbari/" target="_blank" class="text-cyan-300 underline font-bold">Connect on LinkedIn</a> or email <a href="mailto:ai-bpmellat@outlook.com" class="text-cyan-300 underline font-bold">ai-bpmellat@outlook.com</a>.
+          <span class="text-[#f4d5cc] font-bold">*** PARTNERSHIP PROTOCOL INITIATED ***</span><br/>
+          Reach out directly via LinkedIn or email <a href="mailto:ai-bpmellat@outlook.com" class="text-[#e07253] underline font-bold">ai-bpmellat@outlook.com</a>.
         `);
         break;
 
@@ -262,8 +245,8 @@ const isFa = lang === 'fa';
 
       default:
         appendLine(`
-          <span class="text-slate-400">Analyzing query with Saeed's Neural Agent:</span> "${raw}"<br/>
-          <span class="text-cyan-300">&gt; Saeed Aliakbari is a Senior Software Engineer & AI Architect specializing in RAG architectures, LLMs, and high-availability banking platforms. Type <span class="text-emerald-400 font-bold">help</span> to view system commands.</span>
+          <span class="text-emerald-300">&gt; Query processed:</span> "${raw}"<br/>
+          <span class="text-[#f4d5cc]">Saeed Aliakbari is a Senior Software Engineer &amp; AI Architect specializing in RAG architectures and banking-scale payment platforms. Type <span class="text-[#e07253] font-bold">help</span> for commands.</span>
         `);
         break;
     }
