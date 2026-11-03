@@ -1,0 +1,167 @@
+---
+// Interactive Neural Particle Canvas with Constellation & Matrix Rain mode
+---
+<div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+  <canvas id="neural-canvas" class="w-full h-full opacity-60"></canvas>
+  <div class="absolute inset-0 bg-radial from-transparent via-[#05070d]/60 to-[#05070d] pointer-events-none"></div>
+  <div class="absolute inset-0 cyber-grid-overlay opacity-40 pointer-events-none"></div>
+</div>
+
+<script>
+  const canvas = document.getElementById('neural-canvas') as HTMLCanvasElement;
+  if (canvas) {
+    const ctx = canvas.getContext('2d')!;
+    let width = (canvas.width = window.innerWidth);
+    let height = (canvas.height = window.innerHeight);
+
+    let mouse = { x: -1000, y: -1000, radius: 150 };
+    let isMatrixMode = false;
+
+    window.addEventListener('resize', () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+      initParticles();
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+    });
+
+    window.addEventListener('mouseleave', () => {
+      mouse.x = -1000;
+      mouse.y = -1000;
+    });
+
+    // Custom event to toggle matrix mode from terminal or easter egg
+    window.addEventListener('toggle-matrix', () => {
+      isMatrixMode = !isMatrixMode;
+    });
+
+    // Particle constellation setup
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      radius: number;
+      color: string;
+      baseColor: string;
+    }
+
+    let particles: Particle[] = [];
+    const particleCount = Math.min(Math.floor((width * height) / 14000), 100);
+
+    const colors = ['#00f5d4', '#0ea5e9', '#38bdf8', '#8b5cf6'];
+
+    function initParticles() {
+      particles = [];
+      for (let i = 0; i < particleCount; i++) {
+        const c = colors[Math.floor(Math.random() * colors.length)];
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.8,
+          vy: (Math.random() - 0.5) * 0.8,
+          radius: Math.random() * 2 + 1,
+          color: c,
+          baseColor: c,
+        });
+      }
+    }
+
+    initParticles();
+
+    // Matrix rain setup
+    const fontSize = 14;
+    const columns = Math.floor(width / fontSize);
+    const drops: number[] = [];
+    for (let i = 0; i < columns; i++) {
+      drops[i] = Math.random() * -100;
+    }
+    const matrixChars = '01SAEEDALIAKBARIRAYAMATERAGLLMAIPAYMENT0123456789<>{}/*#';
+
+    function render() {
+      if (isMatrixMode) {
+        ctx.fillStyle = 'rgba(5, 7, 13, 0.15)';
+        ctx.fillRect(0, 0, width, height);
+
+        ctx.fillStyle = '#00f5d4';
+        ctx.font = `${fontSize}px monospace`;
+
+        for (let i = 0; i < drops.length; i++) {
+          const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      } else {
+        ctx.clearRect(0, 0, width, height);
+
+        // Update and draw particles
+        for (let i = 0; i < particles.length; i++) {
+          const p = particles[i];
+          p.x += p.vx;
+          p.y += p.vy;
+
+          if (p.x < 0 || p.x > width) p.vx *= -1;
+          if (p.y < 0 || p.y > height) p.vy *= -1;
+
+          // Mouse push/attract
+          const dx = mouse.x - p.x;
+          const dy = mouse.y - p.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < mouse.radius) {
+            const force = (mouse.radius - dist) / mouse.radius;
+            p.x -= (dx / dist) * force * 3;
+            p.y -= (dy / dist) * force * 3;
+          }
+
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+          ctx.fillStyle = p.color;
+          ctx.shadowBlur = 10;
+          ctx.shadowColor = p.color;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          // Connect particles within distance
+          for (let j = i + 1; j < particles.length; j++) {
+            const p2 = particles[j];
+            const djx = p.x - p2.x;
+            const djy = p.y - p2.y;
+            const d = Math.sqrt(djx * djx + djy * djy);
+
+            if (d < 120) {
+              const alpha = (1 - d / 120) * 0.28;
+              ctx.beginPath();
+              ctx.moveTo(p.x, p.y);
+              ctx.lineTo(p2.x, p2.y);
+              ctx.strokeStyle = `rgba(0, 245, 212, ${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+
+          // Connect to mouse
+          if (dist < mouse.radius) {
+            const alpha = (1 - dist / mouse.radius) * 0.45;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(mouse.x, mouse.y);
+            ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+        }
+      }
+
+      requestAnimationFrame(render);
+    }
+
+    render();
+  }
+</script>

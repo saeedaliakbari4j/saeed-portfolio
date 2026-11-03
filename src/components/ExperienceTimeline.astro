@@ -1,0 +1,95 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+interface Props {
+  lang: 'fa' | 'en';
+}
+const { lang } = Astro.props;
+const isFa = lang === 'fa';
+const { experiences } = portfolioData;
+---
+
+<section id="experience" class="relative py-24 z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border border-indigo-500/40 bg-indigo-950/30 text-indigo-300 mb-4">
+        <span>04 // CAREER TRAJECTORY & IMPACT</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        {isFa ? 'سوابق کاری، رهبری فنی و پژوهش‌ها' : 'Engineering Leadership & Career Milestones'}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-400">
+        {isFa
+          ? 'بیش از ۱۰ سال همکاری با بازیگران اصلی صنعت پرداخت، بنیان‌گذاری استارتاپ‌های وب و پژوهش‌های پیشرو در هوش مصنوعی.'
+          : 'A decade of high-impact engineering across market-leading payment providers, technology ventures, and academic AI labs.'}
+      </p>
+    </div>
+
+    <!-- Timeline Circuit -->
+    <div class="relative max-w-4xl mx-auto">
+      
+      <!-- Central Circuit Line -->
+      <div class="absolute top-0 bottom-0 start-4 sm:start-8 w-0.5 bg-gradient-to-b from-cyan-400 via-sky-500 to-indigo-600 opacity-30"></div>
+
+      <div class="flex flex-col gap-10">
+        {experiences.map((exp, idx) => (
+          <div class="relative ps-12 sm:ps-20 group">
+            
+            <!-- Glowing Node Anchor -->
+            <div class="absolute top-1.5 start-2 sm:start-6 -translate-x-1/2 w-5 h-5 rounded-full bg-slate-950 border-2 border-cyan-400 flex items-center justify-center group-hover:border-cyan-300 group-hover:scale-125 transition-all shadow-lg shadow-cyan-400/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 group-hover:bg-white animate-pulse"></span>
+            </div>
+
+            <!-- Experience Card Content -->
+            <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800/90 hover:border-cyan-500/40 relative">
+              
+              <!-- Header Row -->
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-slate-800/80">
+                <div>
+                  <div class="flex flex-wrap items-center gap-2 mb-1">
+                    <h3 class="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
+                      {isFa ? exp.roleFa : exp.roleEn}
+                    </h3>
+                    {exp.badgeFa && (
+                      <span class="text-[10px] font-mono px-2.5 py-0.5 rounded-full bg-cyan-950/60 border border-cyan-500/30 text-cyan-300">
+                        {isFa ? exp.badgeFa : exp.badgeEn}
+                      </span>
+                    )}
+                  </div>
+                  <div class="text-sm font-semibold text-sky-400">
+                    {isFa ? exp.companyFa : exp.companyEn}
+                  </div>
+                </div>
+
+                <div class="flex flex-col sm:items-end text-xs font-mono text-slate-400">
+                  <span class="text-cyan-300 font-bold">{isFa ? exp.periodFa : exp.periodEn}</span>
+                  <span class="text-slate-500">{isFa ? exp.locationFa : exp.locationEn}</span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <p class="text-sm sm:text-base text-slate-300 leading-relaxed font-light mb-6">
+                {isFa ? exp.descFa : exp.descEn}
+              </p>
+
+              <!-- Skills tags -->
+              <div class="flex flex-wrap gap-2">
+                {exp.skills.map((s) => (
+                  <span class="text-xs font-mono px-3 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+                    {s}
+                  </span>
+                ))}
+              </div>
+
+            </div>
+
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+  </div>
+</section>

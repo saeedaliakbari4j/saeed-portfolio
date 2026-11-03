@@ -1,0 +1,25 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import RagVisualizer from '../components/RagVisualizer.astro';
+import SkillsMatrix from '../components/SkillsMatrix.astro';
+import ProjectsGrid from '../components/ProjectsGrid.astro';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { portfolioData } from '../data/portfolioData';
+
+const { profile } = portfolioData;
+---
+
+<Layout
+  title={`${profile.nameFa} | ${profile.roleFa}`}
+  description={`${profile.nameFa} - ${profile.headlineFa}`}
+  lang="fa"
+>
+  <Hero lang="fa" />
+  <RagVisualizer lang="fa" />
+  <SkillsMatrix lang="fa" />
+  <ProjectsGrid lang="fa" />
+  <ExperienceTimeline lang="fa" />
+  <ContactSection lang="fa" />
+</Layout>

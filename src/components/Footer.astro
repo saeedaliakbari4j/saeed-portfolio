@@ -1,0 +1,67 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+interface Props {
+  lang: 'fa' | 'en';
+}
+const { lang } = Astro.props;
+const isFa = lang === 'fa';
+const { profile } = portfolioData;
+---
+
+<footer class="relative py-12 border-t border-slate-900 bg-slate-950/80 backdrop-blur-xl z-10 text-xs text-slate-400">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+    
+    <!-- Left / Brand -->
+    <div class="flex items-center gap-3">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-400 to-sky-500 p-[1px]">
+        <div class="w-full h-full bg-slate-950 rounded-[7px] flex items-center justify-center font-mono font-bold text-xs text-cyan-400">
+          SA
+        </div>
+      </div>
+      <div>
+        <div class="font-bold text-white">
+          {isFa ? profile.nameFa : profile.nameEn}
+        </div>
+        <div class="text-[11px] font-mono text-slate-500">
+          AI & FINTECH SOFTWARE ARCHITECT &copy; {new Date().getFullYear()}
+        </div>
+      </div>
+    </div>
+
+    <!-- Center: Tech Stack Badge -->
+    <div class="font-mono text-[11px] text-slate-500 flex items-center gap-2">
+      <span>ENGINEERED WITH</span>
+      <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-cyan-400">
+        ASTRO 7
+      </span>
+      <span>&amp;</span>
+      <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-800 text-sky-400">
+        TAILWIND
+      </span>
+    </div>
+
+    <!-- Right: Back to Top & Socials -->
+    <div class="flex items-center gap-4">
+      <a href={profile.github} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">
+        GitHub
+      </a>
+      <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-cyan-400 transition-colors">
+        LinkedIn
+      </a>
+      <a href={`mailto:${profile.email}`} class="hover:text-cyan-400 transition-colors">
+        Email
+      </a>
+      <a
+        href="#about"
+        class="p-2 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 transition-all"
+        title={isFa ? 'بازگشت به بالا' : 'Back to Top'}
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</footer>

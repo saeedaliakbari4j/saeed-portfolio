@@ -1,0 +1,243 @@
+---
+import { portfolioData } from '../data/portfolioData';
+
+interface Props {
+  lang: 'fa' | 'en';
+}
+const { lang } = Astro.props;
+const isFa = lang === 'fa';
+const { profile } = portfolioData;
+---
+
+<section id="contact" class="relative py-24 z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono border border-cyan-500/40 bg-cyan-950/30 text-cyan-300 mb-4">
+        <span>05 // DIRECT TRANSMISSION</span>
+      </div>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        {isFa ? 'برقراری ارتباط و آغاز همکاری' : 'Initiate Transmission & Collaboration'}
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-400">
+        {isFa
+          ? 'آیا برای پیاده‌سازی سیستم‌های RAG، پلتفرم‌های مقیاس‌پذیر بانکی یا مشاوره معماری نرم‌افزار به راهبری تخصصی نیاز دارید؟ بیایید گفتگو را آغاز کنیم.'
+          : 'Ready to architect next-gen RAG pipelines, mission-critical FinTech infrastructure, or scale your software team? Let’s connect.'}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Left Column: Direct Info Cards -->
+      <div class="lg:col-span-5 flex flex-col gap-4">
+        
+        <!-- Email Copy Card -->
+        <div class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-cyan-500/40 relative group">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono text-cyan-400">EMAIL_PROTOCOL</span>
+            <button
+              id="copy-email-btn"
+              type="button"
+              class="px-3 py-1 rounded-lg text-xs font-mono bg-slate-900 border border-slate-800 hover:border-cyan-400 text-slate-300 hover:text-cyan-300 transition-all cursor-pointer"
+            >
+              <span id="copy-text">{isFa ? 'کپی آدرس' : 'Copy Email'}</span>
+            </button>
+          </div>
+          <div class="text-lg font-bold font-mono text-white break-all mb-1 select-all" id="target-email">
+            {profile.email}
+          </div>
+          <p class="text-xs text-slate-400 font-light">
+            {isFa ? 'پاسخگویی سریع برای درخواست‌های مشاوره و همکاری فنی' : 'Direct inbox monitored for engineering & consulting inquiries.'}
+          </p>
+        </div>
+
+        <!-- LinkedIn Card -->
+        <a
+          href={profile.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-sky-500/50 block group transition-all"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-sky-400">LINKEDIN_CONNECT</span>
+            <svg class="w-4 h-4 rtl:rotate-180 text-slate-500 group-hover:text-sky-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+          <div class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">
+            linkedin.com/in/saeed-aliakbari
+          </div>
+          <p class="text-xs text-slate-400 font-light mt-1">
+            {isFa ? 'شبکه حرفه‌ای با بیش از ۳,۰۰۰ همراه و متخصص صنعت فناوری' : 'Professional network of 3,000+ technology leaders and engineers.'}
+          </p>
+        </a>
+
+        <!-- GitHub Card -->
+        <a
+          href={profile.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="glass-card rounded-3xl p-6 border border-slate-800 hover:border-cyan-500/50 block group transition-all"
+        >
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs font-mono text-emerald-400">GITHUB_REPOSITORIES</span>
+            <svg class="w-4 h-4 rtl:rotate-180 text-slate-500 group-hover:text-emerald-400 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </div>
+          <div class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">
+            github.com/saeedaliakbari
+          </div>
+          <p class="text-xs text-slate-400 font-light mt-1">
+            {isFa ? 'کدهای منبع، پایان‌نامه RAG، ابزارهای بانکی و پروژه‌های متن‌باز' : 'Open-source thesis RAG models, banking algorithms, and utilities.'}
+          </p>
+        </a>
+
+      </div>
+
+      <!-- Right Column: Interactive Transmission Terminal -->
+      <div class="lg:col-span-7">
+        <div class="glass-card rounded-3xl p-6 sm:p-8 border border-slate-800 relative">
+          
+          <div class="flex items-center justify-between pb-4 mb-6 border-b border-slate-800/80 text-xs font-mono text-cyan-400">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span>SECURE_DISPATCH_FORM</span>
+            </div>
+            <span>TLS_ENCRYPTION: ACTIVE</span>
+          </div>
+
+          <form id="contact-form" class="space-y-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                  {isFa ? 'نام و نام‌خانوادگی / سازمان' : 'Name / Organization'}
+                </label>
+                <input
+                  type="text"
+                  required
+                  id="form-name"
+                  placeholder={isFa ? 'مثال: علی رضایی' : 'e.g. John Doe'}
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+                />
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                  {isFa ? 'آدرس ایمیل یا تلگرام' : 'Email or Telegram'}
+                </label>
+                <input
+                  type="text"
+                  required
+                  id="form-contact"
+                  placeholder={isFa ? 'name@example.com' : 'name@example.com'}
+                  class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                {isFa ? 'موضوع پروژه یا پیام' : 'Subject / Project Domain'}
+              </label>
+              <input
+                type="text"
+                required
+                id="form-subject"
+                placeholder={isFa ? 'همکاری در پروژه RAG / هوش مصنوعی' : 'RAG Pipeline Architecture / Consulting'}
+                class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all"
+              />
+            </div>
+
+            <div>
+              <label class="block text-xs font-mono text-slate-400 mb-1.5">
+                {isFa ? 'متن پیام' : 'Message Details'}
+              </label>
+              <textarea
+                rows="4"
+                required
+                id="form-message"
+                placeholder={isFa ? 'توضیحات کوتاه درباره نیازمندی یا پروژه خود بنویسید...' : 'Briefly describe your project or inquiry...'}
+                class="w-full px-4 py-3 rounded-xl bg-slate-900/90 border border-slate-800 text-sm text-white focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 outline-none font-sans transition-all resize-none"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              id="form-submit-btn"
+              class="w-full py-4 rounded-xl font-bold font-mono text-sm text-slate-950 bg-gradient-to-r from-cyan-400 via-sky-400 to-teal-300 hover:from-cyan-300 hover:to-teal-200 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 transition-all cursor-pointer flex items-center justify-center gap-2"
+            >
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+              <span>{isFa ? 'ارسال سیگنال مستقیم به سعید' : 'Transmit Encrypted Signal'}</span>
+            </button>
+          </form>
+
+          <!-- Success Alert Card -->
+          <div id="form-success-banner" class="hidden mt-4 p-4 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 text-sm flex items-center gap-3">
+            <svg class="w-5 h-5 text-emerald-400 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <div>
+              <div class="font-bold">{isFa ? 'پیام شما با موفقیت ثبت شد!' : 'Signal Successfully Transmitted!'}</div>
+              <div class="text-xs text-emerald-400/80 mt-0.5">
+                {isFa ? 'سعید در سریع‌ترین زمان ممکن پاسخ شما را ارسال خواهد کرد.' : 'Saeed will follow up with you at the provided contact details.'}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import confetti from 'canvas-confetti';
+
+  // Copy email logic
+  const copyBtn = document.getElementById('copy-email-btn');
+  const targetEmail = document.getElementById('target-email');
+  const copyText = document.getElementById('copy-text');
+  const isFa = document.documentElement.lang === 'fa';
+
+  copyBtn?.addEventListener('click', () => {
+    const email = targetEmail?.textContent?.trim() || 'ai-bpmellat@outlook.com';
+    navigator.clipboard.writeText(email).then(() => {
+      if (copyText) copyText.textContent = isFa ? 'کپی شد! ✓' : 'Copied! ✓';
+      if ((window as any).cyberAudio?.isEnabled?.()) {
+        (window as any).cyberAudio.playChime();
+      }
+      setTimeout(() => {
+        if (copyText) copyText.textContent = isFa ? 'کپی آدرس' : 'Copy Email';
+      }, 2500);
+    });
+  });
+
+  // Contact form submission
+  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const successBanner = document.getElementById('form-success-banner');
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    try {
+      confetti({
+        particleCount: 80,
+        spread: 60,
+        origin: { y: 0.7 }
+      });
+    } catch(err) {}
+
+    if ((window as any).cyberAudio?.isEnabled?.()) {
+      (window as any).cyberAudio.playChime();
+    }
+
+    successBanner?.classList.remove('hidden');
+    form.reset();
+  });
+</script>

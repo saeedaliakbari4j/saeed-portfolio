@@ -1,0 +1,17 @@
+{
+  "name": "saeed-aliakbari-portfolio",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.4",
+    "astro": "^7.4.5",
+    "canvas-confetti": "^1.9.4",
+    "tailwindcss": "^4.3.4"
+  }
+}
