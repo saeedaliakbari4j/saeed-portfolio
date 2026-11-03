@@ -8,28 +8,28 @@ const { lang } = Astro.props;
 const isFa = lang === 'fa';
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-[#1d4d3e] text-white shadow-md border-b border-[#163d31]" id="main-nav">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="h-[72px] flex items-center justify-between">
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#1d4d3e] text-white shadow-sm border-b border-[#163d31]" id="main-nav">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="h-[60px] flex items-center justify-between gap-4">
       
-      <!-- Brand Logo (Vintage Serif style like 'Hom Sweet Hom') -->
-      <a href={isFa ? '/' : '/en'} class="flex items-center gap-2 group">
-        <span class="font-serif-vintage text-2xl sm:text-3xl font-bold tracking-tight text-white group-hover:text-[#f4d5cc] transition-colors">
+      <!-- Brand Logo -->
+      <a href={isFa ? '/' : '/en'} class="flex items-center gap-2 group shrink-0">
+        <span class="text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-[#f4d5cc] transition-colors font-vintage">
           {isFa ? 'سعید علی‌اکبری' : 'Saeed Aliakbari'}
         </span>
       </a>
 
-      <!-- Desktop Navigation Links (Uppercase Serif/Sans like reference) -->
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-xs font-bold tracking-wider uppercase">
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-5 lg:gap-6 text-[12px] font-bold tracking-normal uppercase">
         <a href="#home" class="py-1 text-white hover:text-[#f4d5cc] border-b-2 border-white transition-all">
           {isFa ? 'خانه' : 'HOME'}
         </a>
         <a href="#about" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
           {isFa ? 'درباره من' : 'ABOUT'}
         </a>
-        <a href="#rag-lab" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-[#e07253] transition-all flex items-center gap-1.5">
-          <span>{isFa ? 'آزمایشگاه هوش مصنوعی' : 'AI LAB'}</span>
-          <span class="w-2 h-2 rounded-full bg-[#e07253] animate-pulse"></span>
+        <a href="#rag-lab" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-[#d96245] transition-all flex items-center gap-1.5">
+          <span>{isFa ? 'آزمایشگاه RAG' : 'AI LAB'}</span>
+          <span class="w-1.5 h-1.5 rounded-full bg-[#d96245] animate-pulse"></span>
         </a>
         <a href="#skills" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
           {isFa ? 'تخصص‌ها' : 'SKILLS'}
@@ -38,15 +38,15 @@ const isFa = lang === 'fa';
           {isFa ? 'پروژه‌ها' : 'WORK'}
         </a>
         <a href="#experience" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
-          {isFa ? 'مسیر شغلی' : 'CAREER'}
+          {isFa ? 'سوابق' : 'CAREER'}
         </a>
         <a href="#contact" class="py-1 text-emerald-100 hover:text-white border-b-2 border-transparent hover:border-white transition-all">
           {isFa ? 'ارتباط' : 'CONTACT'}
         </a>
       </nav>
 
-      <!-- Action Controls: Audio + Terminal + Lang Switcher -->
-      <div class="flex items-center gap-3">
+      <!-- Action Controls -->
+      <div class="flex items-center gap-2 shrink-0">
         <!-- Audio Synthesizer Toggle -->
         <AudioEffects lang={lang} />
 
@@ -55,19 +55,19 @@ const isFa = lang === 'fa';
           id="terminal-nav-btn"
           type="button"
           aria-label="Open Terminal HUD"
-          title={isFa ? 'کنسول تعاملی هوشمند' : 'Interactive Cyber Console'}
-          class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-mono font-bold bg-[#143a2e] text-[#f4d5cc] border border-[#276652] hover:bg-[#276652] transition-all cursor-pointer"
+          title={isFa ? 'ترمینال هوشمند' : 'Console'}
+          class="hidden sm:inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono font-bold bg-[#143a2e] text-[#f4d5cc] border border-[#276652] hover:bg-[#276652] transition-all cursor-pointer"
         >
-          <span>&gt;_ CLI</span>
+          <span>&gt;_</span>
         </button>
 
         <!-- Language Switcher -->
-        <div class="flex items-center p-0.5 rounded-lg bg-[#143a2e] border border-[#276652]">
+        <div class="flex items-center p-0.5 rounded bg-[#143a2e] border border-[#276652] text-[11px]">
           <a
             href="/"
-            class={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
+            class={`px-2 py-0.5 rounded font-bold transition-all ${
               isFa
-                ? 'bg-[#e07253] text-white shadow-sm'
+                ? 'bg-[#d96245] text-white shadow-xs'
                 : 'text-emerald-200 hover:text-white'
             }`}
           >
@@ -75,9 +75,9 @@ const isFa = lang === 'fa';
           </a>
           <a
             href="/en"
-            class={`px-2.5 py-1 rounded-md text-xs font-bold transition-all ${
+            class={`px-2 py-0.5 rounded font-bold transition-all ${
               !isFa
-                ? 'bg-[#e07253] text-white shadow-sm'
+                ? 'bg-[#d96245] text-white shadow-xs'
                 : 'text-emerald-200 hover:text-white'
             }`}
           >
@@ -90,9 +90,9 @@ const isFa = lang === 'fa';
           id="mobile-menu-btn"
           type="button"
           aria-label="Toggle Menu"
-          class="md:hidden p-2 text-white hover:bg-[#143a2e] rounded-lg"
+          class="md:hidden p-1.5 text-white hover:bg-[#143a2e] rounded"
         >
-          <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
           </svg>
         </button>
@@ -101,27 +101,27 @@ const isFa = lang === 'fa';
     </div>
 
     <!-- Mobile Drawer Navigation -->
-    <div id="mobile-menu" class="hidden md:hidden py-4 border-t border-[#276652] flex flex-col gap-2">
-      <a href="#home" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+    <div id="mobile-menu" class="hidden md:hidden py-3 border-t border-[#276652] flex flex-col gap-1.5 text-xs">
+      <a href="#home" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
         {isFa ? 'خانه' : 'HOME'}
       </a>
-      <a href="#about" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+      <a href="#about" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
         {isFa ? 'درباره من' : 'ABOUT'}
       </a>
-      <a href="#rag-lab" class="px-3 py-2 text-sm text-[#f4d5cc] hover:bg-[#143a2e] rounded-lg mobile-link flex items-center justify-between">
+      <a href="#rag-lab" class="px-3 py-1.5 text-[#f4d5cc] hover:bg-[#143a2e] rounded mobile-link flex items-center justify-between">
         <span>{isFa ? 'آزمایشگاه RAG' : 'AI LAB'}</span>
-        <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#e07253] text-white">LIVE</span>
+        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#d96245] text-white">LIVE</span>
       </a>
-      <a href="#skills" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+      <a href="#skills" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
         {isFa ? 'تخصص‌ها' : 'SKILLS'}
       </a>
-      <a href="#projects" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+      <a href="#projects" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
         {isFa ? 'پروژه‌ها' : 'WORK'}
       </a>
-      <a href="#experience" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
-        {isFa ? 'مسیر حرفه‌ای' : 'CAREER'}
+      <a href="#experience" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
+        {isFa ? 'سوابق' : 'CAREER'}
       </a>
-      <a href="#contact" class="px-3 py-2 text-sm text-white hover:bg-[#143a2e] rounded-lg mobile-link">
+      <a href="#contact" class="px-3 py-1.5 text-white hover:bg-[#143a2e] rounded mobile-link">
         {isFa ? 'ارتباط' : 'CONTACT'}
       </a>
     </div>
@@ -129,7 +129,6 @@ const isFa = lang === 'fa';
 </header>
 
 <script>
-  // Mobile menu toggle
   const mobileBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
   mobileBtn?.addEventListener('click', () => {

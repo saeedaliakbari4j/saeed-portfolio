@@ -9,51 +9,51 @@ const isFa = lang === 'fa';
 const { projects } = portfolioData;
 ---
 
-<section id="projects" class="py-24 bg-white border-b border-[#e5efe9]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="projects" class="py-14 sm:py-16 bg-[#faf8f5] border-b border-[#e5efe9]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
       <div>
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e8f5f1] border border-[#cbe4db] text-[#1d4d3e] text-xs font-bold tracking-wider uppercase mb-3">
-          <span>FEATURED WORK &amp; CODE</span>
+        <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
+          <span>FEATURED WORK</span>
         </div>
-        <h2 class="font-serif-vintage text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d4d3e] tracking-tight">
+        <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
           {isFa ? 'پروژه‌های شاخص و کدهای منبع' : 'Featured Projects & Open Source'}
         </h2>
-        <p class="mt-4 text-base text-[#526b60] max-w-2xl">
+        <p class="mt-1.5 text-xs sm:text-sm text-[#5a7369] max-w-xl">
           {isFa
-            ? 'مجموعه‌ای از سامانه‌های هوش مصنوعی، خطوط لوله داده RAG، ابزارهای بانکی و فریم‌ورک‌های توسعه‌یافته با کدهای منبع در گیت‌هاب.'
-            : 'Production systems, RAG data engines, banking protocol validators, and interactive applications built by Saeed Aliakbari.'}
+            ? 'مجموعه‌ای از سامانه‌های هوش مصنوعی، خطوط لوله RAG، ابزارهای بانکی و فریم‌ورک‌های توسعه‌یافته با کدهای منبع در گیت‌هاب.'
+            : 'Production systems, RAG data engines, banking protocol validators, and interactive applications.'}
         </p>
       </div>
 
       <!-- Filter Tabs -->
-      <div class="flex flex-wrap items-center gap-2 p-1.5 rounded-xl bg-[#faf8f5] border border-[#e2ece7] self-start md:self-auto">
+      <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl bg-white border border-[#e2ece7] self-start md:self-auto">
         <button
           type="button"
-          class="project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-sm"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-xs"
           data-category="all"
         >
-          {isFa ? 'همه پروژه‌ها' : 'All Work'}
+          {isFa ? 'همه' : 'All'}
         </button>
         <button
           type="button"
-          class="project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-[#526b60] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
           data-category="ai"
         >
-          AI & RAG
+          AI &amp; RAG
         </button>
         <button
           type="button"
-          class="project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-[#526b60] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
           data-category="fintech"
         >
           FinTech
         </button>
         <button
           type="button"
-          class="project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-[#526b60] hover:text-[#1d4d3e]"
+          class="project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]"
           data-category="web"
         >
           Web
@@ -62,68 +62,56 @@ const { projects } = portfolioData;
     </div>
 
     <!-- Cards Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6" id="projects-container">
       {projects.map((item) => (
         <article
-          class="project-card editorial-card rounded-3xl p-7 flex flex-col justify-between relative group"
+          class="project-card editorial-card rounded-2xl p-5 flex flex-col justify-between relative group"
           data-category={item.category}
         >
-          <!-- Top Row: Badge & Category -->
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-[#e8f5f1] text-[#1d4d3e]">
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-md bg-[#eef7f4] text-[#1d4d3e]">
                 {isFa ? item.categoryLabelFa : item.categoryLabelEn}
               </span>
               {item.stats && (
-                <span class="text-xs font-mono font-bold text-[#e07253] bg-[#fdf2ee] px-2.5 py-0.5 rounded-md border border-[#f5d6cc]">
+                <span class="text-[10px] font-mono font-bold text-[#d96245] bg-[#fdf2ee] px-2 py-0.5 rounded border border-[#f5d6cc]">
                   {item.stats}
                 </span>
               )}
             </div>
 
-            <!-- Title -->
-            <h3 class="font-serif-vintage text-2xl font-bold text-[#1d4d3e] group-hover:text-[#e07253] transition-colors mb-3 leading-snug">
+            <h3 class="text-lg font-bold text-[#1d4d3e] group-hover:text-[#d96245] transition-colors mb-2 leading-snug font-vintage">
               {isFa ? item.titleFa : item.titleEn}
             </h3>
 
-            <!-- Description -->
-            <p class="text-sm text-[#3d594f] leading-relaxed font-light mb-6">
+            <p class="text-xs text-[#3d594f] leading-relaxed font-normal mb-4">
               {isFa ? item.descFa : item.descEn}
             </p>
 
-            <!-- Highlights -->
-            <div class="mb-6 p-4 rounded-xl bg-[#faf8f5] border border-[#e2ece7] text-xs text-[#526b60]">
-              <span class="text-[#e07253] font-bold text-[11px] block mb-1 uppercase tracking-wider">
-                {isFa ? 'ویژگی‌های کلیدی معماری:' : 'Architectural Highlights:'}
+            <div class="mb-4 p-3 rounded-lg bg-[#faf8f5] border border-[#e2ece7] text-[11px] text-[#5a7369]">
+              <span class="text-[#d96245] font-bold text-[10px] block mb-0.5 uppercase">
+                {isFa ? 'ویژگی کلیدی:' : 'Key Highlight:'}
               </span>
               <span>{isFa ? item.highlightsFa : item.highlightsEn}</span>
             </div>
           </div>
 
-          <!-- Bottom: Tech Tags & GitHub Button -->
-          <div class="pt-5 border-t border-[#e2ece7] flex flex-col gap-4">
-            <!-- Tags -->
-            <div class="flex flex-wrap gap-1.5">
+          <div class="pt-4 border-t border-[#e2ece7] flex flex-col gap-3">
+            <div class="flex flex-wrap gap-1">
               {item.tags.map((t) => (
-                <span class="text-[11px] font-mono px-2.5 py-1 rounded-md bg-[#e8f5f1] text-[#1d4d3e] font-medium">
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#eef7f4] text-[#1d4d3e] font-medium">
                   {t}
                 </span>
               ))}
             </div>
 
-            <!-- GitHub Repo Link Button -->
             <a
               href={item.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center justify-between px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-[#1d4d3e] bg-[#faf8f5] border border-[#cbe4db] hover:border-[#1d4d3e] hover:bg-[#1d4d3e] hover:text-white transition-all group/btn shadow-sm"
+              class="inline-flex items-center justify-between px-3.5 py-2 rounded-lg font-bold text-xs uppercase tracking-wider text-[#1d4d3e] bg-[#faf8f5] border border-[#cbe4db] hover:bg-[#1d4d3e] hover:text-white transition-all group/btn"
             >
-              <div class="flex items-center gap-2">
-                <svg class="w-4 h-4 fill-current text-[#1d4d3e] group-hover/btn:text-white transition-colors" viewBox="0 0 24 24">
-                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
-                </svg>
-                <span>{isFa ? 'کدهای منبع در گیت‌هاب' : 'View on GitHub'}</span>
-              </div>
+              <span>{isFa ? 'مشاهده در گیت‌هاب' : 'GitHub Repository'}</span>
               <span class="rtl:rotate-180 group-hover/btn:translate-x-1 transition-transform">→</span>
             </a>
           </div>
@@ -144,9 +132,9 @@ const { projects } = portfolioData;
       const cat = target.getAttribute('data-category');
 
       filterBtns.forEach((b) => {
-        b.className = 'project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer text-[#526b60] hover:text-[#1d4d3e]';
+        b.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer text-[#5a7369] hover:text-[#1d4d3e]';
       });
-      target.className = 'project-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-sm';
+      target.className = 'project-filter-btn px-3 py-1.5 rounded-lg text-xs font-bold uppercase transition-all cursor-pointer bg-[#1d4d3e] text-white shadow-xs';
 
       cards.forEach((card) => {
         const cardCat = card.getAttribute('data-category');

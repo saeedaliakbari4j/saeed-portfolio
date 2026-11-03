@@ -8,93 +8,93 @@ const { lang } = Astro.props;
 const isFa = lang === 'fa';
 ---
 
-<section id="rag-lab" class="py-24 bg-white border-b border-[#e5efe9]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="rag-lab" class="py-14 sm:py-16 bg-[#faf8f5] border-b border-[#e5efe9]">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-14">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e8f5f1] border border-[#cbe4db] text-[#1d4d3e] text-xs font-bold tracking-wider uppercase mb-3">
-        <span class="w-2 h-2 rounded-full bg-[#e07253] animate-ping"></span>
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-[#d96245] animate-ping"></span>
         <span>{isFa ? 'آزمایشگاه زنده هوش مصنوعی' : 'LIVE AI ARCHITECTURE LAB'}</span>
       </div>
-      <h2 class="font-serif-vintage text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d4d3e] tracking-tight">
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
         {isFa ? 'شبیه‌ساز زنده پایپ‌لاین RAG' : 'Interactive RAG Retrieval Simulator'}
       </h2>
-      <p class="mt-4 text-base sm:text-lg text-[#526b60]">
+      <p class="mt-2 text-xs sm:text-sm text-[#5a7369]">
         {isFa
-          ? 'تخصص پایان‌نامه و پروژه‌های هوش مصنوعی سعید علی‌اکبری را در یک خط لوله بلادرنگ (Vector Search + Semantic Chunking + LLM) امتحان کنید.'
-          : 'Experience Saeed Aliakbari’s RAG expertise firsthand: witness real-time vector embedding, cosine similarity lookup, and grounded context synthesis.'}
+          ? 'تخصص پایان‌نامه و پروژه‌های هوش مصنوعی سعید علی‌اکبری را در یک خط لوله بلادرنگ (Vector Search + Chunking + LLM) امتحان کنید.'
+          : 'Experience Saeed Aliakbari’s RAG expertise firsthand: witness real-time vector embedding, cosine similarity, and grounded context.'}
       </p>
     </div>
 
     <!-- RAG Interactive Console Container -->
-    <div class="bg-[#faf8f5] rounded-3xl p-6 sm:p-10 border-2 border-[#1d4d3e]/15 shadow-xl relative overflow-hidden">
+    <div class="bg-white rounded-2xl p-5 sm:p-7 border border-[#e2ece7] shadow-md relative overflow-hidden">
       
       <!-- Top Title Bar -->
-      <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-[#e2ece7] text-xs font-mono">
-        <div class="flex items-center gap-2 text-[#1d4d3e] font-bold">
-          <span class="w-3 h-3 rounded-full bg-[#e07253]"></span>
-          <span>RAG_KERNEL // VECTOR_DB: CHROMA // EMBEDDING: TEXT-EMBED-3</span>
+      <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#e2ece7] text-[11px] font-mono">
+        <div class="flex items-center gap-1.5 text-[#1d4d3e] font-bold">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#d96245]"></span>
+          <span>RAG_KERNEL // VECTOR_DB: CHROMA</span>
         </div>
-        <div class="flex items-center gap-3">
-          <span id="rag-latency-badge" class="px-3 py-1 rounded-md bg-white border border-[#cbe4db] text-[#1d4d3e] font-bold">
+        <div class="flex items-center gap-2">
+          <span id="rag-latency-badge" class="px-2 py-0.5 rounded bg-[#f4fbf8] border border-[#cbe4db] text-[#1d4d3e] font-bold">
             LATENCY: IDLE
           </span>
-          <span class="px-3 py-1 rounded-md bg-[#1d4d3e] text-white font-bold">
+          <span class="px-2 py-0.5 rounded bg-[#1d4d3e] text-white font-bold">
             TOP-K: 1
           </span>
         </div>
       </div>
 
       <!-- Quick Preset Prompt Chips -->
-      <div class="mt-6 flex flex-wrap items-center gap-2">
-        <span class="text-xs font-bold text-[#526b60] uppercase tracking-wider">
+      <div class="mt-4 flex flex-wrap items-center gap-2">
+        <span class="text-[11px] font-bold text-[#5a7369] uppercase tracking-wider">
           {isFa ? 'پرسش‌های پیشنهادی:' : 'Suggested Queries:'}
         </span>
         <button
           type="button"
-          class="rag-query-chip text-xs px-3.5 py-2 rounded-lg bg-white border border-[#cbe4db] hover:border-[#e07253] hover:text-[#e07253] text-[#1d4d3e] font-medium transition-all cursor-pointer shadow-sm"
+          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
           data-q={isFa ? 'تجربه سعید در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What did Saeed achieve in banking & Behpardakht Mellat?'}
           data-ans={isFa 
             ? 'سعید علی‌اکبری در شرکت به‌پرداخت ملت (بزرگ‌ترین PSP خاورمیانه) معمار ارشد سیستم‌های BPM و راهکارهای هوش مصنوعی بوده و سامانه‌هایی با توان پردازش بیش از ۱۰ هزار تراکنش در ثانیه و الگوریتم‌های اعتبارسنجی شبکه شتاب و شبا را هدایت کرده است.'
             : 'At Behpardakht Mellat (the Middle East’s leading PSP), Saeed engineered high-throughput transaction engines handling 10k+ TPS, automated critical enterprise workflows via BPMN, and formulated banking-grade validation protocols.'}
           data-cos="0.987"
         >
-          {isFa ? '🏦 سوابق بانکی و به‌پرداخت ملت' : '🏦 Banking & Behpardakht Mellat'}
+          {isFa ? '🏦 سوابق بانکی به‌پرداخت' : '🏦 Banking & Behpardakht'}
         </button>
 
         <button
           type="button"
-          class="rag-query-chip text-xs px-3.5 py-2 rounded-lg bg-white border border-[#cbe4db] hover:border-[#e07253] hover:text-[#e07253] text-[#1d4d3e] font-medium transition-all cursor-pointer shadow-sm"
+          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
           data-q={isFa ? 'تخصص سعید در RAG و هوش مصنوعی دانشگاه شهید بهشتی چیست؟' : 'What is his expertise in RAG & Shahid Beheshti AI research?'}
           data-ans={isFa
             ? 'سعید در دانشگاه شهید بهشتی تحقیقات پیشرفته‌ای روی Retrieval-Augmented Generation و بازیابی معنایی متون انجام داده است؛ او از ترکیب Chunkerهای معنایی، پایگاه‌های برداری متراکم و Re-ranking ترکیبی برای به حداقل رساندن خطای توهم در مدل‌های زبانی استفاده می‌کند.'
             : 'Saeed conducted specialized research at Shahid Beheshti University on Retrieval-Augmented Generation, vector embeddings, and cross-encoder reranking, minimizing LLM hallucinations below 1% for mission-critical enterprise workflows.'}
           data-cos="0.994"
         >
-          {isFa ? '🧠 تخصص RAG و دانشگاه شهید بهشتی' : '🧠 RAG Research & SBU Thesis'}
+          {isFa ? '🧠 تخصص RAG دانشگاه بهشتی' : '🧠 RAG Research & SBU Thesis'}
         </button>
 
         <button
           type="button"
-          class="rag-query-chip text-xs px-3.5 py-2 rounded-lg bg-white border border-[#cbe4db] hover:border-[#e07253] hover:text-[#e07253] text-[#1d4d3e] font-medium transition-all cursor-pointer shadow-sm"
+          class="rag-query-chip text-[11px] px-3 py-1.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] hover:border-[#d96245] hover:text-[#d96245] text-[#1d4d3e] font-medium transition-all cursor-pointer"
           data-q={isFa ? 'آیا سعید علی‌اکبری آماده همکاری و مشاوره در پروژه‌ها است؟' : 'Is Saeed available for engineering leadership or consulting?'}
           data-ans={isFa
             ? 'بله، سعید علی‌اکبری با بیش از ۱۰ سال سابقه هدایت تیم‌های فنی در استارتاپ‌ها (رایامیت) و سازمان‌های کلان، آماده مشاوره معماری هوش مصنوعی، طراحی سیستم‌های RAG و رهبری فنی پروژه‌های بین‌المللی است.'
             : 'Yes, Saeed Aliakbari brings 10+ years of engineering leadership across startups (Rayamate) and enterprise financial institutions. He is open to AI consulting, RAG pipeline architecture, and high-impact software leadership.'}
           data-cos="0.981"
         >
-          {isFa ? '💼 همکاری و رهبری فنی' : '💼 Leadership & Consulting'}
+          {isFa ? '💼 همکاری و مشاوره فنی' : '💼 Leadership & Consulting'}
         </button>
       </div>
 
       <!-- Input Row -->
-      <div class="mt-4 flex flex-col sm:flex-row gap-3">
+      <div class="mt-3.5 flex flex-col sm:flex-row gap-2.5">
         <div class="relative flex-1">
           <input
             id="rag-input"
             type="text"
-            class="w-full px-4 py-3.5 rounded-xl bg-white border-2 border-[#cbe4db] focus:border-[#1d4d3e] text-sm text-[#192b23] placeholder-[#8ca59b] font-mono transition-all outline-none"
+            class="w-full px-3.5 py-2.5 rounded-lg bg-[#faf8f5] border border-[#cbe4db] focus:border-[#1d4d3e] text-xs sm:text-sm text-[#192b23] font-medium transition-all outline-none"
             placeholder={isFa ? 'یک پرسش بنویسید یا دکمه‌های بالا را انتخاب کنید...' : 'Type a query or pick a preset question above...'}
             value={isFa ? 'تجربه سعید در سیستم‌های بانکی و به‌پرداخت ملت چیست؟' : 'What did Saeed achieve in banking & Behpardakht Mellat?'}
           />
@@ -102,86 +102,74 @@ const isFa = lang === 'fa';
         <button
           id="rag-run-btn"
           type="button"
-          class="px-8 py-3.5 rounded-xl font-bold uppercase tracking-wider text-xs sm:text-sm text-white bg-[#e07253] hover:bg-[#cb5e40] transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2"
+          class="px-5 py-2.5 rounded-lg font-bold text-xs uppercase tracking-wider text-white bg-[#d96245] hover:bg-[#c45237] transition-all shadow-xs cursor-pointer flex items-center justify-center gap-1.5 shrink-0"
         >
-          <span id="rag-btn-spinner" class="hidden w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-          <span>{isFa ? 'اجرای پایپ‌لاین RAG' : 'Execute RAG Pipeline'}</span>
+          <span id="rag-btn-spinner" class="hidden w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+          <span>{isFa ? 'اجرای پایپ‌لاین' : 'Execute RAG'}</span>
         </button>
       </div>
 
-      <!-- Pipeline Step Visualizer (4 Clean Cards) -->
-      <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+      <!-- Pipeline Step Visualizer (4 Compact Cards) -->
+      <div class="mt-5 grid grid-cols-2 md:grid-cols-4 gap-2.5">
         
-        <!-- Step 1: Embedding -->
-        <div class="bg-white rounded-2xl p-4 border border-[#e2ece7] shadow-sm" id="step-embed">
-          <div class="flex items-center justify-between text-xs font-mono text-[#526b60] mb-2">
-            <span class="font-bold text-[#1d4d3e]">01 // EMBEDDING</span>
-            <span class="step-status text-[#e07253] font-bold">READY</span>
+        <!-- Step 1 -->
+        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-embed">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="font-bold text-[#1d4d3e]">01 // EMBED</span>
+            <span class="step-status text-[#d96245] font-bold">READY</span>
           </div>
-          <div class="text-[11px] font-mono text-[#1d4d3e] truncate h-8 flex items-center bg-[#f4fbf8] px-2.5 rounded border border-[#d6ebe3]" id="embed-vector">
-            [0.481, -0.192, 0.884, ...]
+          <div class="text-[10px] font-mono text-[#1d4d3e] truncate h-6 flex items-center bg-white px-2 rounded border border-[#d6ebe3]" id="embed-vector">
+            [0.481, -0.192, ...]
           </div>
-          <p class="text-[11px] text-[#526b60] mt-2">
-            {isFa ? 'تولید بردار ۷۶۸ بُعدی معنایی' : 'Dense 768-dim semantic projection'}
-          </p>
         </div>
 
-        <!-- Step 2: Cosine Search -->
-        <div class="bg-white rounded-2xl p-4 border border-[#e2ece7] shadow-sm" id="step-cosine">
-          <div class="flex items-center justify-between text-xs font-mono text-[#526b60] mb-2">
-            <span class="font-bold text-[#1d4d3e]">02 // COSINE MATCH</span>
-            <span class="step-status text-[#e07253] font-bold">READY</span>
+        <!-- Step 2 -->
+        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-cosine">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="font-bold text-[#1d4d3e]">02 // MATCH</span>
+            <span class="step-status text-[#d96245] font-bold">READY</span>
           </div>
-          <div class="text-[11px] font-mono text-[#1d4d3e] h-8 flex items-center justify-between bg-[#f4fbf8] px-2.5 rounded border border-[#d6ebe3]" id="cosine-score">
-            <span>SIMILARITY:</span>
-            <span class="font-bold text-[#e07253]">0.987</span>
+          <div class="text-[10px] font-mono text-[#1d4d3e] h-6 flex items-center justify-between bg-white px-2 rounded border border-[#d6ebe3]" id="cosine-score">
+            <span>COSINE:</span>
+            <span class="font-bold text-[#d96245]">0.987</span>
           </div>
-          <p class="text-[11px] text-[#526b60] mt-2">
-            {isFa ? 'جستجوی نزدیک‌ترین سند در وکتور دیتابیس' : 'Top-1 nearest vector in Chroma DB'}
-          </p>
         </div>
 
-        <!-- Step 3: Context Retrieval -->
-        <div class="bg-white rounded-2xl p-4 border border-[#e2ece7] shadow-sm" id="step-chunk">
-          <div class="flex items-center justify-between text-xs font-mono text-[#526b60] mb-2">
-            <span class="font-bold text-[#1d4d3e]">03 // CONTEXT CHUNK</span>
-            <span class="step-status text-[#e07253] font-bold">READY</span>
+        <!-- Step 3 -->
+        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-chunk">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="font-bold text-[#1d4d3e]">03 // CHUNK</span>
+            <span class="step-status text-[#d96245] font-bold">READY</span>
           </div>
-          <div class="text-[11px] font-mono text-[#1d4d3e] truncate h-8 flex items-center bg-[#f4fbf8] px-2.5 rounded border border-[#d6ebe3]" id="chunk-snippet">
-            DOC_REF: BEHPARDAKHT_PSP_V2
+          <div class="text-[10px] font-mono text-[#1d4d3e] truncate h-6 flex items-center bg-white px-2 rounded border border-[#d6ebe3]" id="chunk-snippet">
+            DOC_BEHPARDAKHT
           </div>
-          <p class="text-[11px] text-[#526b60] mt-2">
-            {isFa ? 'استخراج قطعه متنی معتبر بدون توهم' : 'Grounded factual chunk retrieval'}
-          </p>
         </div>
 
-        <!-- Step 4: Synthesis -->
-        <div class="bg-white rounded-2xl p-4 border border-[#e2ece7] shadow-sm" id="step-synth">
-          <div class="flex items-center justify-between text-xs font-mono text-[#526b60] mb-2">
-            <span class="font-bold text-[#1d4d3e]">04 // LLM SYNTHESIS</span>
-            <span class="step-status text-[#e07253] font-bold">READY</span>
+        <!-- Step 4 -->
+        <div class="bg-[#faf8f5] rounded-xl p-3 border border-[#e2ece7]" id="step-synth">
+          <div class="flex items-center justify-between text-[10px] font-mono mb-1.5">
+            <span class="font-bold text-[#1d4d3e]">04 // SYNTH</span>
+            <span class="step-status text-[#d96245] font-bold">READY</span>
           </div>
-          <div class="text-[11px] font-mono text-[#1d4d3e] h-8 flex items-center justify-between bg-[#f4fbf8] px-2.5 rounded border border-[#d6ebe3]" id="synth-status">
+          <div class="text-[10px] font-mono text-[#1d4d3e] h-6 flex items-center justify-between bg-white px-2 rounded border border-[#d6ebe3]" id="synth-status">
             <span>MODEL:</span>
-            <span class="font-bold text-[#e07253]">RAG_GROUNDED</span>
+            <span class="font-bold text-[#d96245]">RAG_GROUND</span>
           </div>
-          <p class="text-[11px] text-[#526b60] mt-2">
-            {isFa ? 'ترکیب کانتکست و تولید پاسخ نهایی' : 'Final conditioned response generation'}
-          </p>
         </div>
 
       </div>
 
       <!-- Output Display Box -->
-      <div class="mt-6 p-6 sm:p-8 rounded-2xl bg-white border-2 border-[#1d4d3e]/20 shadow-sm relative">
-        <div class="flex items-center justify-between text-xs font-mono text-[#1d4d3e] mb-3 pb-2 border-b border-[#e2ece7]">
-          <span class="flex items-center gap-2 font-bold">
-            <span class="w-2.5 h-2.5 rounded-full bg-[#e07253]"></span>
-            {isFa ? 'پاسخ مستند تولیدشده توسط پایپ‌لاین هوش مصنوعی:' : 'Synthesized Grounded Response:'}
+      <div class="mt-4 p-4 sm:p-5 rounded-xl bg-[#eef7f4] border border-[#cbe4db] relative">
+        <div class="flex items-center justify-between text-[11px] font-bold text-[#1d4d3e] mb-2 pb-1.5 border-b border-[#d2e8df]">
+          <span class="flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-[#d96245]"></span>
+            {isFa ? 'پاسخ مستند پایپ‌لاین هوش مصنوعی:' : 'Synthesized Grounded Response:'}
           </span>
-          <span class="text-[11px] text-[#526b60] font-mono" id="tokens-counter">TOKENS: 0</span>
+          <span class="text-[10px] text-[#5a7369] font-mono" id="tokens-counter">TOKENS: 0</span>
         </div>
-        <p id="rag-output-text" class="text-[#192b23] text-base leading-relaxed min-h-[4rem] font-sans">
+        <p id="rag-output-text" class="text-[#192b23] text-xs sm:text-sm leading-relaxed min-h-[3rem]">
           {isFa 
             ? 'سعید علی‌اکبری در شرکت به‌پرداخت ملت (بزرگ‌ترین PSP خاورمیانه) معمار ارشد سیستم‌های BPM و راهکارهای هوش مصنوعی بوده و سامانه‌هایی با توان پردازش بیش از ۱۰ هزار تراکنش در ثانیه و الگوریتم‌های اعتبارسنجی شبکه شتاب و شبا را هدایت کرده است.'
             : 'At Behpardakht Mellat (the Middle East’s leading PSP), Saeed engineered high-throughput transaction engines handling 10k+ TPS, automated critical enterprise workflows via BPMN, and formulated banking-grade validation protocols.'}
@@ -236,29 +224,25 @@ const isFa = lang === 'fa';
     if (!outputText || !spinner) return;
 
     spinner.classList.remove('hidden');
-    if (latencyBadge) latencyBadge.textContent = 'LATENCY: COMPUTING...';
+    if (latencyBadge) latencyBadge.textContent = 'LATENCY: ...';
 
     outputText.textContent = '';
     if (tokensCounter) tokensCounter.textContent = 'TOKENS: 0';
 
-    const randomVec = Array.from({ length: 4 }, () => (Math.random() * 2 - 1).toFixed(3));
-    if (embedVector) embedVector.textContent = `[${randomVec.join(', ')}, ...]`;
+    const randomVec = Array.from({ length: 3 }, () => (Math.random() * 2 - 1).toFixed(3));
+    if (embedVector) embedVector.textContent = `[${randomVec.join(', ')}...]`;
 
-    if (cosineScore) cosineScore.innerHTML = `<span>SIMILARITY:</span><span class="font-bold text-[#e07253]">${currentTargetCos}</span>`;
+    if (cosineScore) cosineScore.innerHTML = `<span>COS:</span><span class="font-bold text-[#d96245]">${currentTargetCos}</span>`;
 
     if (chunkSnippet) {
-      const snippets = [
-        'CHUNK://DOC_BEHPARDAKHT_PSP_TRANSACTIONS',
-        'CHUNK://SBU_THESIS_RAG_OPTIMIZATION',
-        'CHUNK://RAYAMATE_ENTERPRISE_AI_SOLUTIONS'
-      ];
+      const snippets = ['DOC_BEHPARDAKHT_PSP', 'SBU_THESIS_RAG', 'RAYAMATE_AI_SOLUTIONS'];
       chunkSnippet.textContent = snippets[Math.floor(Math.random() * snippets.length)];
     }
 
     const startTime = performance.now();
 
     setTimeout(() => {
-      const elapsed = Math.round(performance.now() - startTime + 42);
+      const elapsed = Math.round(performance.now() - startTime + 38);
       if (latencyBadge) latencyBadge.textContent = `LATENCY: ${elapsed}ms`;
       spinner.classList.add('hidden');
 
@@ -278,6 +262,6 @@ const isFa = lang === 'fa';
           clearInterval(timer);
         }
       }, 15);
-    }, 450);
+    }, 400);
   }
 </script>

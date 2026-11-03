@@ -9,34 +9,30 @@ const isFa = lang === 'fa';
 const { profile } = portfolioData;
 ---
 
-<footer class="bg-[#1d4d3e] text-white py-14 border-t border-[#163d31] text-xs">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+<footer class="bg-[#1d4d3e] text-white py-8 border-t border-[#163d31] text-xs">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
     
     <!-- Left / Brand -->
-    <div class="flex items-center gap-3">
-      <span class="font-serif-vintage text-2xl font-bold text-white">
+    <div class="flex items-center gap-2 text-center sm:text-start">
+      <span class="text-base font-bold text-white font-vintage">
         {isFa ? 'سعید علی‌اکبری' : 'Saeed Aliakbari'}
       </span>
-      <span class="text-emerald-300">/</span>
-      <span class="text-emerald-200">
-        AI ARCHITECT &amp; SOFTWARE ENGINEER &copy; {new Date().getFullYear()}
+      <span class="text-emerald-400">/</span>
+      <span class="text-emerald-200 text-[11px]">
+        {isFa ? 'مهندس نرم‌افزار و معمار هوش مصنوعی' : 'AI Architect & Software Engineer'} &copy; {new Date().getFullYear()}
       </span>
     </div>
 
-    <!-- Center: Tech Stack Badge -->
-    <div class="text-xs text-emerald-200 flex items-center gap-2">
+    <!-- Center / Built with -->
+    <div class="text-[11px] text-emerald-200 flex items-center gap-1.5">
       <span>BUILT WITH</span>
-      <span class="px-2.5 py-1 rounded bg-[#143a2e] border border-[#276652] text-[#f4d5cc] font-bold">
+      <span class="px-2 py-0.5 rounded bg-[#143a2e] border border-[#276652] text-[#f4d5cc] font-bold">
         ASTRO 7
       </span>
-      <span>&amp;</span>
-      <span class="px-2.5 py-1 rounded bg-[#143a2e] border border-[#276652] text-[#f4d5cc] font-bold">
-        TAILWIND
-      </span>
     </div>
 
-    <!-- Right: Back to Top & Socials -->
-    <div class="flex items-center gap-6 font-bold uppercase tracking-wider text-xs">
+    <!-- Right: Links -->
+    <div class="flex items-center gap-4 font-bold text-xs">
       <a href={profile.github} target="_blank" rel="noopener noreferrer" class="text-emerald-200 hover:text-white transition-colors">
         GitHub
       </a>
@@ -48,10 +44,10 @@ const { profile } = portfolioData;
       </a>
       <a
         href="#home"
-        class="p-2.5 rounded-lg bg-[#143a2e] border border-[#276652] hover:bg-[#e07253] hover:border-[#e07253] text-white transition-all"
-        title={isFa ? 'بازگشت به بالا' : 'Back to Top'}
+        class="p-1.5 rounded bg-[#143a2e] border border-[#276652] hover:bg-[#d96245] hover:border-[#d96245] text-white transition-all"
+        title={isFa ? 'بالا' : 'Top'}
       >
-        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 15l7-7 7 7" />
         </svg>
       </a>

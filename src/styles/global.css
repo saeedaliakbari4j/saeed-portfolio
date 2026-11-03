@@ -3,20 +3,21 @@
 :root {
   --color-forest: #1d4d3e;
   --color-forest-dark: #14382d;
-  --color-mint: #e8f5f1;
-  --color-mint-light: #f4fbf8;
-  --color-coral: #e07253;
-  --color-coral-hover: #cb5e40;
+  --color-mint: #eef7f4;
+  --color-mint-card: #f4fbf8;
+  --color-coral: #d96245;
+  --color-coral-hover: #c45237;
   --color-cream: #faf8f5;
   --color-charcoal: #192b23;
-  --color-muted: #526b60;
+  --color-muted: #5a7369;
   --color-border: #dbe8e3;
 }
 
 html {
   scroll-behavior: smooth;
-  background-color: var(--color-cream);
-  color: var(--color-charcoal);
+  background-color: #faf8f5;
+  color: #192b23;
+  font-size: 15px; /* compact base font */
 }
 
 body {
@@ -24,9 +25,11 @@ body {
   min-height: 100vh;
   position: relative;
   background-color: #faf8f5;
+  font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-/* Persian Font */
+/* Persian Font Defaults */
 [dir="rtl"], [lang="fa"] {
   font-family: 'Vazirmatn', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
@@ -36,23 +39,28 @@ body {
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-.font-serif-vintage {
-  font-family: 'Fraunces', Georgia, serif !important;
+.font-vintage {
+  font-family: 'Fraunces', Georgia, serif;
+}
+
+[dir="rtl"] .font-vintage {
+  font-family: 'Vazirmatn', sans-serif;
+  font-weight: 800;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #f1ede6;
 }
 ::-webkit-scrollbar-thumb {
   background: #1d4d3e;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #e07253;
+  background: #d96245;
 }
 
 /* Editorial Underline Effect */
@@ -65,11 +73,11 @@ body {
   content: '';
   position: absolute;
   left: 0;
-  bottom: 2px;
+  bottom: 1px;
   width: 100%;
-  height: 3px;
-  background-color: #e07253;
-  opacity: 0.6;
+  height: 2.5px;
+  background-color: #d96245;
+  opacity: 0.65;
   border-radius: 2px;
 }
 
@@ -77,11 +85,11 @@ body {
 .editorial-card {
   background: #ffffff;
   border: 1px solid #e2ece7;
-  box-shadow: 0 4px 20px -2px rgba(29, 77, 62, 0.06);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 12px -2px rgba(29, 77, 62, 0.05);
+  transition: all 0.25s ease-out;
 }
 .editorial-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 30px -4px rgba(29, 77, 62, 0.12);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -3px rgba(29, 77, 62, 0.09);
   border-color: #1d4d3e;
 }

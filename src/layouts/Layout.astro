@@ -25,37 +25,32 @@ const dir = isFa ? 'rtl' : 'ltr';
     
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="Saeed Aliakbari, سعید علی اکبری, AI Architect, RAG, FinTech, Rayamate, Behpardakht Mellat, Astro, Python, LLM" />
     <meta name="author" content="Saeed Aliakbari" />
 
-    <!-- Open Graph / Meta -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content="/saeed.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/saeed.jpg" />
 
-    <!-- Google Fonts: Fraunces (Vintage Editorial Serif), Plus Jakarta Sans, Vazirmatn -->
+    <!-- Google Fonts: Vazirmatn (Persian), Fraunces (Vintage English Serif), Plus Jakarta Sans -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Vazirmatn:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-[#faf8f5] text-[#192b23] min-h-screen selection:bg-[#e07253]/25 selection:text-[#1d4d3e]">
-    <!-- Top Forest Green Navigation Header -->
+  <body class="bg-[#faf8f5] text-[#192b23] min-h-screen selection:bg-[#d96245]/20 selection:text-[#1d4d3e] antialiased">
+    <!-- Navbar Header -->
     <Navbar lang={lang} />
 
     <!-- Main Content Area -->
-    <main class="relative z-10 pt-[72px]">
+    <main class="relative z-10 pt-[60px]">
       <slot />
     </main>
 
-    <!-- Forest Green Footer -->
+    <!-- Footer -->
     <Footer lang={lang} />
 
     <!-- Interactive Console (Minimalist Drawer) -->

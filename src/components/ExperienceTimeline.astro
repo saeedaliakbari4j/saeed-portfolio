@@ -9,75 +9,75 @@ const isFa = lang === 'fa';
 const { experiences } = portfolioData;
 ---
 
-<section id="experience" class="py-24 bg-[#faf8f5] border-b border-[#e5efe9]">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<section id="experience" class="py-14 sm:py-16 bg-white border-b border-[#e5efe9]">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     
     <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#e8f5f1] border border-[#cbe4db] text-[#1d4d3e] text-xs font-bold tracking-wider uppercase mb-3">
-        <span>CAREER &amp; TRACK RECORD</span>
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-1.5 px-3 py-0.5 rounded-full bg-[#eef7f4] border border-[#cbe4db] text-[#1d4d3e] text-[11px] font-bold tracking-wider uppercase mb-2">
+        <span>TRACK RECORD</span>
       </div>
-      <h2 class="font-serif-vintage text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d4d3e] tracking-tight">
+      <h2 class="text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1d4d3e] tracking-tight font-vintage">
         {isFa ? 'سوابق کاری، رهبری فنی و پژوهش‌ها' : 'Engineering Leadership & Career History'}
       </h2>
-      <p class="mt-4 text-base sm:text-lg text-[#526b60]">
+      <p class="mt-2 text-xs sm:text-sm text-[#5a7369]">
         {isFa
           ? 'بیش از ۱۰ سال همکاری با بازیگران اصلی صنعت پرداخت، بنیان‌گذاری استارتاپ‌های وب و پژوهش‌های پیشرو در هوش مصنوعی.'
-          : 'A decade of high-impact engineering across market-leading payment providers, technology ventures, and academic AI labs.'}
+          : 'A decade of high-impact engineering across payment providers, technology ventures, and academic AI labs.'}
       </p>
     </div>
 
     <!-- Timeline Circuit -->
-    <div class="relative max-w-4xl mx-auto">
+    <div class="relative max-w-3xl mx-auto">
       
       <!-- Central Circuit Line -->
-      <div class="absolute top-0 bottom-0 start-4 sm:start-8 w-1 bg-[#d0e5dd]"></div>
+      <div class="absolute top-0 bottom-0 start-3 sm:start-6 w-0.5 bg-[#d0e5dd]"></div>
 
-      <div class="flex flex-col gap-10">
+      <div class="flex flex-col gap-6 sm:gap-8">
         {experiences.map((exp, idx) => (
-          <div class="relative ps-12 sm:ps-20 group">
+          <div class="relative ps-8 sm:ps-14 group">
             
             <!-- Node Anchor -->
-            <div class="absolute top-2 start-2 sm:start-6 -translate-x-1/2 w-6 h-6 rounded-full bg-white border-4 border-[#1d4d3e] flex items-center justify-center group-hover:border-[#e07253] group-hover:scale-110 transition-all shadow-md">
-              <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e] group-hover:bg-[#e07253]"></span>
+            <div class="absolute top-2 start-1.5 sm:start-4.5 -translate-x-1/2 w-4 h-4 rounded-full bg-white border-2 border-[#1d4d3e] flex items-center justify-center group-hover:border-[#d96245] transition-all">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#1d4d3e] group-hover:bg-[#d96245]"></span>
             </div>
 
             <!-- Experience Card Content -->
-            <div class="editorial-card rounded-3xl p-6 sm:p-8 relative">
+            <div class="editorial-card rounded-2xl p-5 sm:p-6 relative">
               
               <!-- Header Row -->
-              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 mb-4 border-b border-[#e2ece7]">
+              <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1 pb-3 mb-3 border-b border-[#e2ece7]">
                 <div>
-                  <div class="flex flex-wrap items-center gap-2 mb-1">
-                    <h3 class="font-serif-vintage text-2xl font-bold text-[#1d4d3e] group-hover:text-[#e07253] transition-colors">
+                  <div class="flex flex-wrap items-center gap-2 mb-0.5">
+                    <h3 class="text-base sm:text-lg font-bold text-[#1d4d3e] group-hover:text-[#d96245] transition-colors font-vintage">
                       {isFa ? exp.roleFa : exp.roleEn}
                     </h3>
                     {exp.badgeFa && (
-                      <span class="text-xs font-bold px-3 py-1 rounded-full bg-[#e8f5f1] text-[#1d4d3e]">
+                      <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#eef7f4] text-[#1d4d3e]">
                         {isFa ? exp.badgeFa : exp.badgeEn}
                       </span>
                     )}
                   </div>
-                  <div class="text-base font-bold text-[#e07253]">
+                  <div class="text-xs sm:text-sm font-bold text-[#d96245]">
                     {isFa ? exp.companyFa : exp.companyEn}
                   </div>
                 </div>
 
-                <div class="flex flex-col sm:items-end text-xs font-bold text-[#526b60]">
-                  <span class="text-[#1d4d3e] text-sm font-serif-vintage font-bold">{isFa ? exp.periodFa : exp.periodEn}</span>
+                <div class="flex flex-col sm:items-end text-[11px] font-semibold text-[#5a7369]">
+                  <span class="text-[#1d4d3e] font-bold">{isFa ? exp.periodFa : exp.periodEn}</span>
                   <span>{isFa ? exp.locationFa : exp.locationEn}</span>
                 </div>
               </div>
 
               <!-- Description -->
-              <p class="text-base text-[#3d594f] leading-relaxed font-light mb-6">
+              <p class="text-xs sm:text-sm text-[#3d594f] leading-relaxed font-normal mb-4">
                 {isFa ? exp.descFa : exp.descEn}
               </p>
 
               <!-- Skills tags -->
-              <div class="flex flex-wrap gap-2">
+              <div class="flex flex-wrap gap-1.5">
                 {exp.skills.map((s) => (
-                  <span class="text-xs font-mono font-medium px-3 py-1 rounded-md bg-[#faf8f5] border border-[#e2ece7] text-[#1d4d3e]">
+                  <span class="text-[10px] font-mono font-medium px-2 py-0.5 rounded bg-[#faf8f5] border border-[#e2ece7] text-[#1d4d3e]">
                     {s}
                   </span>
                 ))}
